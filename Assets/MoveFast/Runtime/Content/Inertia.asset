@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7862ef75246c1b04db99c25d7e852087, type: 3}
+  m_Name: Inertia
+  m_EditorClassIdentifier: 
+  _trackCoverArt: {fileID: 21300000, guid: e9995681e09c34b40beb56e0994b7e1a, type: 3}
+  _trackName: Inertia
+  _trackArtist: MMI
+  _trackGenre: Electronic
+  _trackBPM: 120
+  _trackDifficulty: {fileID: 21300000, guid: a7d49f5cc51e8134682591dcddf948c8, type: 3}
