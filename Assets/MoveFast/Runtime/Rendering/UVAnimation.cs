@@ -34,7 +34,7 @@ namespace Oculus.Interaction.MoveFast
         [SerializeField] string _uvPropertyName = "_BaseMap_ST";
 
         [Header("Flipbook")]
-        [SerializeField] Vector2Int _cellCount = new Vector2Int(5,5);
+        [SerializeField] Vector2Int _cellCount = new Vector2Int(5, 5);
         [SerializeField] float _framesPerSecond = 10;
 
         [Header("Scroll")]

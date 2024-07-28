@@ -52,13 +52,13 @@ public class GazeTarget : MonoBehaviour
     void OnDestroy()
     {
         UInt32[] targetIds = new UInt32[1];
-        targetIds[0] = (UInt32) transform.GetInstanceID();
+        targetIds[0] = (UInt32)transform.GetInstanceID();
         CAPI.ovrAvatar_RemoveGazeTargets(1, targetIds);
     }
 
     private void UpdateGazeTarget()
     {
-        ovrAvatarGazeTarget target = CreateOvrGazeTarget((UInt32) transform.GetInstanceID(), transform.position, Type);
+        ovrAvatarGazeTarget target = CreateOvrGazeTarget((UInt32)transform.GetInstanceID(), transform.position, Type);
         RuntimeTargetList.targets[0] = target;
         CAPI.ovrAvatar_UpdateGazeTargets(RuntimeTargetList);
     }

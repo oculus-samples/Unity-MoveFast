@@ -22,7 +22,7 @@ using UnityEngine;
 
 /*
  * This script creates a custom mesh, specifically for hand masking in the Passthrough SDK:
- * 
+ *
  * 1. Created with 2D screen space in mind, since it's 2D triangles facing the camera.
  *    Not advised to use this mesh in any other way.
  * 2. The look of it should be coupled with maskMaterial, which defines the falloff of the fade and

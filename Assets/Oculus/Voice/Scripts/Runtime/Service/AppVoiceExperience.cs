@@ -73,11 +73,11 @@ namespace Oculus.Voice
                                                   null == TranscriptionProvider;
         #endregion
 
-        #if UNITY_ANDROID && !UNITY_EDITOR
+#if UNITY_ANDROID && !UNITY_EDITOR
         public bool HasPlatformIntegrations => usePlatformServices && voiceServiceImpl is VoiceSDKImpl;
-        #else
+#else
         public bool HasPlatformIntegrations => false;
-        #endif
+#endif
 
         public bool EnableConsoleLogging => enableConsoleLogging;
 
@@ -136,7 +136,7 @@ namespace Oculus.Voice
             // Clean up if we're switching to native C# wit impl
             if (!UsePlatformIntegrations && voiceServiceImpl is VoiceSDKImpl)
             {
-                ((VoiceSDKImpl) voiceServiceImpl).Disconnect();
+                ((VoiceSDKImpl)voiceServiceImpl).Disconnect();
             }
 #if UNITY_ANDROID && !UNITY_EDITOR
             var loggerImpl = new VoiceSDKPlatformLoggerImpl();
@@ -214,9 +214,9 @@ namespace Oculus.Voice
                 MicPermissionsManager.RequestMicPermission();
             }
 
-            #if UNITY_ANDROID && !UNITY_EDITOR
+#if UNITY_ANDROID && !UNITY_EDITOR
             platformService?.SetRuntimeConfiguration(witRuntimeConfiguration);
-            #endif
+#endif
 
             // Logging
             VoiceEvents.OnResponse?.AddListener(OnWitResponseListener);
@@ -230,7 +230,7 @@ namespace Oculus.Voice
         protected override void OnDisable()
         {
             base.OnDisable();
-            #if UNITY_ANDROID
+#if UNITY_ANDROID
             if (voiceServiceImpl is VoiceSDKImpl platformImpl)
             {
                 platformImpl.Disconnect();
@@ -240,7 +240,7 @@ namespace Oculus.Voice
             {
                 loggerImpl.Disconnect();
             }
-            #endif
+#endif
             voiceServiceImpl = null;
 
             // Logging

@@ -31,7 +31,7 @@ namespace Oculus.Voice.Core.Bindings.Android.PlatformLogger
         public bool IsUsingPlatformIntegration { get; set; }
         public string WitApplication { get; set; }
         public bool ShouldLogToConsole { get; set; }
-        private static readonly string TAG = "VoiceSDKConsoleLogger"; 
+        private static readonly string TAG = "VoiceSDKConsoleLogger";
         public void LogInteractionStart(string requestId, string witApi)
         {
             if (!ShouldLogToConsole) return;

@@ -255,7 +255,8 @@ public class OVRPassthroughLayer : MonoBehaviour
         Gradient gradient = null,
         ColorMapEditorType colorMapType = ColorMapEditorType.GrayscaleToColor)
     {
-        if (!(colorMapType == ColorMapEditorType.Grayscale || colorMapType == ColorMapEditorType.GrayscaleToColor)) {
+        if (!(colorMapType == ColorMapEditorType.Grayscale || colorMapType == ColorMapEditorType.GrayscaleToColor))
+        {
             Debug.LogError("Unsupported color map type specified");
             return;
         }
@@ -265,7 +266,8 @@ public class OVRPassthroughLayer : MonoBehaviour
         colorMapEditorBrightness = brightness;
         colorMapEditorPosterize = posterize;
 
-        if (colorMapType == ColorMapEditorType.GrayscaleToColor) {
+        if (colorMapType == ColorMapEditorType.GrayscaleToColor)
+        {
             if (gradient != null)
             {
                 colorMapEditorGradient = gradient;
@@ -275,7 +277,9 @@ public class OVRPassthroughLayer : MonoBehaviour
                 // Leave gradient untouched if it's already neutral to avoid unnecessary memory allocations.
                 colorMapEditorGradient = CreateNeutralColorMapGradient();
             }
-        } else if (gradient != null) {
+        }
+        else if (gradient != null)
+        {
             Debug.LogWarning("Gradient parameter is ignored for color map types other than GrayscaleToColor");
         }
     }
@@ -675,7 +679,7 @@ public class OVRPassthroughLayer : MonoBehaviour
                 computeBrightnessContrastPosterizeMap(tmpColorMapData, colorMapEditorBrightness, colorMapEditorContrast, colorMapEditorPosterize);
                 for (int i = 0; i < 256; i++)
                 {
-                    Color color = colorMapEditorGradient.Evaluate(tmpColorMapData[i]  / 255.0f);
+                    Color color = colorMapEditorGradient.Evaluate(tmpColorMapData[i] / 255.0f);
                     WriteColorToColorMap(i, ref color);
                 }
                 styleDirty = true;
@@ -1017,5 +1021,5 @@ public class OVRPassthroughLayer : MonoBehaviour
     {
         DestroySurfaceGeometries();
     }
-#endregion
+    #endregion
 }

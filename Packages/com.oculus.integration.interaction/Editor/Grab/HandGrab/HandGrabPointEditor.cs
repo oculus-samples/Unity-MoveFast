@@ -21,7 +21,7 @@
 namespace Oculus.Interaction.Deprecated
 {
     [System.Obsolete("Replaced by HandGrabPoseEditor")]
-    public class HandGrabPointEditor 
+    public class HandGrabPointEditor
     {
     }
 }

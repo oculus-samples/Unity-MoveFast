@@ -29,7 +29,7 @@ namespace Oculus.Interaction.DistanceReticles
 
         public Vector3 ProcessHitPoint(Vector3 hitPoint)
         {
-            return _targetPoint != null ? _targetPoint.position 
+            return _targetPoint != null ? _targetPoint.position
                 : this.transform.position;
         }
     }

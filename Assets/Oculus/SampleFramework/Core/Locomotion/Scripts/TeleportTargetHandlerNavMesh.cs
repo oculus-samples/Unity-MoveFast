@@ -20,9 +20,9 @@
 
 /************************************************************************************
 
-See SampleFramework license.txt for license terms.  Unless required by applicable law 
-or agreed to in writing, the sample code is provided “AS IS” WITHOUT WARRANTIES OR 
-CONDITIONS OF ANY KIND, either express or implied.  See the license for specific 
+See SampleFramework license.txt for license terms.  Unless required by applicable law
+or agreed to in writing, the sample code is provided “AS IS” WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied.  See the license for specific
 language governing permissions and limitations under the license.
 
 ************************************************************************************/
@@ -53,7 +53,7 @@ public class TeleportTargetHandlerNavMesh : TeleportTargetHandler
 
     /// <summary>
     /// This method will be called while the LocmotionTeleport component is in the aiming state, once for each
-    /// line segment that the targeting beam requires. 
+    /// line segment that the targeting beam requires.
     /// The function should return true whenever an actual target location has been selected.
     /// </summary>
     /// <param name="start"></param>
@@ -72,7 +72,7 @@ public class TeleportTargetHandlerNavMesh : TeleportTargetHandler
     }
 
     /// <summary>
-    /// This version of ConsiderDestination will only return a valid location if the pathing system is able to find a route 
+    /// This version of ConsiderDestination will only return a valid location if the pathing system is able to find a route
     /// from the current position to the candidate location.
     /// </summary>
     /// <param name="location"></param>
@@ -85,7 +85,7 @@ public class TeleportTargetHandlerNavMesh : TeleportTargetHandler
             Vector3 start = LocomotionTeleport.GetCharacterPosition();
             Vector3 dest = result.GetValueOrDefault();
             UnityEngine.AI.NavMesh.CalculatePath(start, dest, NavMeshAreaMask, _path);
-                
+
             if (_path.status == UnityEngine.AI.NavMeshPathStatus.PathComplete)
             {
                 return result;

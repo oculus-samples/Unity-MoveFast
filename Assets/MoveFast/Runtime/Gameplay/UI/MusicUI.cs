@@ -42,9 +42,9 @@ namespace Oculus.Interaction.MoveFast
         private Image _trackDifficulty;
 
         private MusicPreset _musicPreset;
-        public MusicPreset MusicPreset 
+        public MusicPreset MusicPreset
         {
-            get => _musicPreset; 
+            get => _musicPreset;
             set
             {
                 _musicPreset = value;

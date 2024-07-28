@@ -124,7 +124,7 @@ public class OVRCameraRig : MonoBehaviour
 
     private Matrix4x4 _previousTrackingSpaceTransform;
 
-#region Unity Messages
+    #region Unity Messages
     protected virtual void Awake()
     {
         _skipUpdate = true;
@@ -155,7 +155,7 @@ public class OVRCameraRig : MonoBehaviour
     {
         Application.onBeforeRender -= OnBeforeRenderCallback;
     }
-#endregion
+    #endregion
 
     protected virtual void UpdateAnchors(bool updateEyeAnchors, bool updateHandAnchors)
     {

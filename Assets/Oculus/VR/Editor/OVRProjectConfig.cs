@@ -87,7 +87,7 @@ public class OVRProjectConfig : ScriptableObject
         Required = 2
     }
 
-    public List<DeviceType> targetDeviceTypes = new List<DeviceType> {DeviceType.Quest, DeviceType.Quest2, DeviceType.QuestPro};
+    public List<DeviceType> targetDeviceTypes = new List<DeviceType> { DeviceType.Quest, DeviceType.Quest2, DeviceType.QuestPro };
     public bool allowOptional3DofHeadTracking = false;
     public HandTrackingSupport handTrackingSupport = HandTrackingSupport.ControllersOnly;
     public HandTrackingFrequency handTrackingFrequency = HandTrackingFrequency.LOW;

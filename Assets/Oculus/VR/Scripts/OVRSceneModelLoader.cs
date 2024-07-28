@@ -56,7 +56,7 @@ public class OVRSceneModelLoader : MonoBehaviour
         {
             OVRSceneManager.Development.LogWarning(nameof(OVRSceneModelLoader),
                 $"{nameof(OVRSceneManager.LoadSceneModel)} failed. Will try again next frame.");
-          yield return null;
+            yield return null;
         } while (!SceneManager.LoadSceneModel());
     }
 

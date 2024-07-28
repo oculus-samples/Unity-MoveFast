@@ -85,7 +85,7 @@ public class OVRRuntimeController : MonoBehaviour
             m_controllerConnectedPrev = controllerConnected;
         }
 
-        if(controllerConnected)
+        if (controllerConnected)
         {
             UpdateControllerAnimation();
         }
@@ -158,7 +158,7 @@ public class OVRRuntimeController : MonoBehaviour
 
     private void UpdateControllerAnimation()
     {
-        if(m_animationNodes == null)
+        if (m_animationNodes == null)
         {
             return;
         }

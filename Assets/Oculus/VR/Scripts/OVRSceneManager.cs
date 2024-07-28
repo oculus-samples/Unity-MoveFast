@@ -509,7 +509,7 @@ public class OVRSceneManager : MonoBehaviour
         }
 
         // This can occur if neither the prefab nor any matching override prefab is set in the inspector
-        if(prefab == null)
+        if (prefab == null)
         {
             Verbose?.Log(nameof(OVRSceneManager),
                 $"No prefab was provided for space: [{space}]"

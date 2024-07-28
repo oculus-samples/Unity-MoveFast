@@ -26,7 +26,7 @@ namespace Oculus.Interaction.MoveFast
 {
     /// <summary>
     /// Modifies the `enabled` state of a list of components, from the `Active` field of the given IActiveState.
-    /// Similar to ActiveStateTracker except supports inverting the IActiveState and supports Behaviour types 
+    /// Similar to ActiveStateTracker except supports inverting the IActiveState and supports Behaviour types
     /// rather than MonoBehaviour (e.g. AudioSource) and is about 10% of the code
     /// </summary>
     public class ConditionalComponentsEnabled : ActiveStateObserver

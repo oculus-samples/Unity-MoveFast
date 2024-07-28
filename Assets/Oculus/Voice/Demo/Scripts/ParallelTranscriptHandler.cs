@@ -31,7 +31,7 @@ namespace Oculus.Voice.Demo.UIShapesDemo
         [Header("Voice")]
         [SerializeField] private VoiceService _voiceService;
 
-        #if UNITY_EDITOR
+#if UNITY_EDITOR
         // Reset
         private string[] _activates = new string[] { "Set the", "Make the" };
         private string[] _shapes = new string[] { "cube", "sphere", "capsule", "cylinder", "pentagon" };
@@ -52,7 +52,7 @@ namespace Oculus.Voice.Demo.UIShapesDemo
                 }
             }
         }
-        #endif
+#endif
 
         public void SendParallelRequests()
         {

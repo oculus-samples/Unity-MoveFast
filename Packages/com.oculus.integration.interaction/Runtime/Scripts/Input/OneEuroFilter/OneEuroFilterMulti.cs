@@ -26,8 +26,8 @@ namespace Oculus.Interaction.Input
     public partial class OneEuroFilter
     {
         /// <summary>
-        /// Implementation of <see cref="IOneEuroFilter{TData}"/> that acts on 
-        /// data types with multiple <see cref="float"/> components, such as 
+        /// Implementation of <see cref="IOneEuroFilter{TData}"/> that acts on
+        /// data types with multiple <see cref="float"/> components, such as
         /// <see cref="UnityEngine.Vector3"/>
         /// </summary>
         /// <typeparam name="TData">The multi-component datatype to filter</typeparam>

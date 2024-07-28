@@ -20,9 +20,9 @@
 
 /************************************************************************************
 
-See SampleFramework license.txt for license terms.  Unless required by applicable law 
-or agreed to in writing, the sample code is provided “AS IS” WITHOUT WARRANTIES OR 
-CONDITIONS OF ANY KIND, either express or implied.  See the license for specific 
+See SampleFramework license.txt for license terms.  Unless required by applicable law
+or agreed to in writing, the sample code is provided “AS IS” WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied.  See the license for specific
 language governing permissions and limitations under the license.
 
 ************************************************************************************/
@@ -43,7 +43,7 @@ public class CharacterCapsule : MonoBehaviour
     private float _height;
     private float _radius;
 
-    [Range(4,32)]
+    [Range(4, 32)]
     public int SubdivisionsU;
 
     [Range(4, 32)]
@@ -56,7 +56,7 @@ public class CharacterCapsule : MonoBehaviour
     private int[] _triangles;
 
     // Update is called once per frame
-    void Update ()
+    void Update()
     {
         if (_character == null)
         {
@@ -67,9 +67,9 @@ public class CharacterCapsule : MonoBehaviour
             }
         }
 
-        if (_height == _character.height 
-            && _radius == _character.radius 
-            && _subdivisionU == SubdivisionsU 
+        if (_height == _character.height
+            && _radius == _character.radius
+            && _subdivisionU == SubdivisionsU
             && _subdivisionV == SubdivisionsV)
         {
             return;
@@ -82,21 +82,21 @@ public class CharacterCapsule : MonoBehaviour
 
         List<Vector3> verts = new List<Vector3>();
 
-        var vector = new Vector3(1,0,0);
+        var vector = new Vector3(1, 0, 0);
 
         // Generate the mesh
-        var topOffset = new Vector3(0, _height/2.0f - _radius, 0);
-        var bottomOffset = new Vector3(0, _radius - _height/2.0f, 0);
+        var topOffset = new Vector3(0, _height / 2.0f - _radius, 0);
+        var bottomOffset = new Vector3(0, _radius - _height / 2.0f, 0);
 
         // Add all the necessary vertices
-        verts.Add(new Vector3(0, _height/2.0f, 0));
+        verts.Add(new Vector3(0, _height / 2.0f, 0));
 
         for (int u = SubdivisionsU - 1; u >= 0; u--)
         {
-            float uf = (float) u / (float) SubdivisionsU;
+            float uf = (float)u / (float)SubdivisionsU;
             for (int v = 0; v < SubdivisionsV; v++)
             {
-                float vf = (float) v / (float) SubdivisionsV;
+                float vf = (float)v / (float)SubdivisionsV;
                 var q = Quaternion.Euler(0, vf * 360.0f, uf * 90.0f);
                 var vert = q * vector;
                 vert *= _radius;
@@ -133,7 +133,7 @@ public class CharacterCapsule : MonoBehaviour
             i = 0;
             tris.Add(i);
             tris.Add(v);
-            tris.Add(v+1);
+            tris.Add(v + 1);
         }
         tris.Add(0);
         tris.Add(SubdivisionsV);
@@ -153,7 +153,7 @@ public class CharacterCapsule : MonoBehaviour
                 tris.Add(i + 1);
                 tris.Add(i + SubdivisionsV);
                 tris.Add(i + SubdivisionsV + 1);
-           }
+            }
             i = index + SubdivisionsV - 1;
             tris.Add(i);
             tris.Add(i + SubdivisionsV);
@@ -208,7 +208,7 @@ public class CharacterCapsule : MonoBehaviour
 
             tris.Add(i + 1 - SubdivisionsV);
             tris.Add(i + SubdivisionsV);
-            tris.Add(i + 1); 
+            tris.Add(i + 1);
         }
 
         // bottom cap

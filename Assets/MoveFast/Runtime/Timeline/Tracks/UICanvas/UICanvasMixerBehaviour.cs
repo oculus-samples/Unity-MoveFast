@@ -32,12 +32,12 @@ public class UICanvasMixerBehaviour : PlayableBehaviour
         if (_trackBinding == null) return;
 
         bool show = false;
-        int inputCount = playable.GetInputCount ();
+        int inputCount = playable.GetInputCount();
 
         for (int i = 0; i < inputCount; i++)
         {
             float inputWeight = playable.GetInputWeight(i);
-            if (!Mathf.Approximately (inputWeight, 0f))
+            if (!Mathf.Approximately(inputWeight, 0f))
             {
                 show = true;
                 break;

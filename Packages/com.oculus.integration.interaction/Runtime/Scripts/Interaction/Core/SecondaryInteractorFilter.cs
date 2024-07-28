@@ -136,7 +136,7 @@ namespace Oculus.Interaction
             }
 
             List<IInteractorView> secondaryViews = _primaryToSecondaryMap[primary];
-            foreach(IInteractorView secondaryView in secondaryViews)
+            foreach (IInteractorView secondaryView in secondaryViews)
             {
                 SecondaryInteractable.RemoveInteractorByIdentifier(secondaryView.Identifier);
             }

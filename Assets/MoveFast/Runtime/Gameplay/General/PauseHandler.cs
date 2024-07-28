@@ -42,7 +42,7 @@ namespace Oculus.Interaction.MoveFast
             yield return new WaitForSeconds(2f);
             OVRManager.InputFocusLost += CheckPause;
         }
-        
+
         private void OnDestroy()
         {
             OVRManager.InputFocusLost -= PauseGame;

@@ -229,7 +229,7 @@ namespace Oculus.Interaction
                             ComputeDistanceFrom(interactable, surfaceHit.Point);
 
                         // Check if our collision lies outside of the max distance in the proximityfield
-                        if(distanceFromEdge > interactable.MaxDistance)
+                        if (distanceFromEdge > interactable.MaxDistance)
                         {
                             continue;
                         }
@@ -320,7 +320,7 @@ namespace Oculus.Interaction
                         // interactable versus others that also pass this test this frame
                         // but may be at a closer proximity.
                         float distanceFromSurfacePoint = ComputeDistanceFrom(interactable, Origin);
-                        if(distanceFromSurfacePoint > interactable.MaxDistance)
+                        if (distanceFromSurfacePoint > interactable.MaxDistance)
                         {
                             continue;
                         }
@@ -421,7 +421,7 @@ namespace Oculus.Interaction
             }
 
             // Unselect if the interactor is above the surface by at least _touchReleaseThreshold
-            if(ComputeDistanceAbove(interactable, Origin) > _touchReleaseThreshold)
+            if (ComputeDistanceAbove(interactable, Origin) > _touchReleaseThreshold)
             {
                 _hitInteractable = null;
                 return;
@@ -522,7 +522,7 @@ namespace Oculus.Interaction
 
             if (interactable.ReleaseDistance > 0.0f)
             {
-                if(ComputeDistanceFrom(interactable, Origin) > interactable.ReleaseDistance)
+                if (ComputeDistanceFrom(interactable, Origin) > interactable.ReleaseDistance)
                 {
                     GeneratePointerEvent(PointerEventType.Cancel, interactable);
                     _previousPokeOrigin = Origin;

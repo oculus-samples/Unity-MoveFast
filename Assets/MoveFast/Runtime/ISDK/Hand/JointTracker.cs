@@ -26,8 +26,8 @@ namespace Oculus.Interaction.MoveFast
     /// <summary>
     /// Updates the position of this transform to the position provided by the IHand for the specified joint.
     /// If an offsetSource is provided it will used to generate a pose to offset the joint pose by.
-    /// 
-    /// Use the offsetSource when working with a custom hand whose bones do not align with the Oculus hand; 
+    ///
+    /// Use the offsetSource when working with a custom hand whose bones do not align with the Oculus hand;
     /// bring the oculus hand into the prefab, align the custom hand with the oculus hand and assign the
     /// appropriate joint transform as the offset source.
     /// </summary>

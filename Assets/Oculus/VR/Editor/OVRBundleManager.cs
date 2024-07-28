@@ -382,7 +382,7 @@ public class OVRBundleManager
             {
                 return false;
             }
-            
+
             for (int i = 0; i < sceneList.Count; ++i)
             {
                 if (!sceneList[i].shouldDeploy) continue;

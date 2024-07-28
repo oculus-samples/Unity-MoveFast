@@ -55,7 +55,7 @@ internal static class OVRPermissionsRequester
     }
 
     private const string FaceTrackingPermission = "com.oculus.permission.FACE_TRACKING";
-    private const string EyeTrackingPermission  = "com.oculus.permission.EYE_TRACKING";
+    private const string EyeTrackingPermission = "com.oculus.permission.EYE_TRACKING";
     private const string BodyTrackingPermission = "com.oculus.permission.BODY_TRACKING";
 
     /// <summary>

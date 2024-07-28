@@ -27,5 +27,5 @@ using Oculus.Interaction.MoveFast;
 [Serializable]
 public class UICanvasBehaviour : PlayableBehaviour
 {
-    
+
 }

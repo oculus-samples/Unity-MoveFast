@@ -110,11 +110,11 @@ public class OvrAvatarMaterialManager : MonoBehaviour
     public static string AVATAR_SHADER_LIP_SMOOTHNESS = "_LipSmoothness";
 
     // Diffuse Intensity constants: body, clothes, eyewear, hair, beard
-    public static float[] DiffuseIntensities = new[] {0.3f, 0.1f, 0f, 0.15f, 0.15f};
+    public static float[] DiffuseIntensities = new[] { 0.3f, 0.1f, 0f, 0.15f, 0.15f };
     // Rim Intensity constants: body, clothes, eyewear, hair, beard
-    public static float[] RimIntensities = new[] {5f, 2f, 2.84f, 4f, 4f};
+    public static float[] RimIntensities = new[] { 5f, 2f, 2.84f, 4f, 4f };
     // Reflection Intensity constants: body, clothes, eyewear, hair, beard
-    public static float[] ReflectionIntensities = new[] {0f, 0.3f, 0.4f, 0f, 0f};
+    public static float[] ReflectionIntensities = new[] { 0f, 0.3f, 0.4f, 0f, 0f };
 
     // Loading animation
     private const float LOADING_ANIMATION_AMPLITUDE = 0.5f;
@@ -181,10 +181,13 @@ public class OvrAvatarMaterialManager : MonoBehaviour
                 localProps.Textures[0].format,
                 true,
                 QualitySettings.activeColorSpace == ColorSpace.Gamma ? false : true
-            ) { filterMode = FilterMode.Trilinear,
+            )
+            {
+                filterMode = FilterMode.Trilinear,
                 //Can probably get away with 4 for roughness maps as well, once we switch
                 //to BC7/ASTC4x4 texture compression.
-                anisoLevel = (TextureType)i == TextureType.RoughnessMaps ? 16 : 4 };
+                anisoLevel = (TextureType)i == TextureType.RoughnessMaps ? 16 : 4
+            };
             //So a name shows up in Renderdoc
             TextureArrays[i].TextureArray.name = string.Format("Texture Array Type: {0}", (TextureType)i);
 

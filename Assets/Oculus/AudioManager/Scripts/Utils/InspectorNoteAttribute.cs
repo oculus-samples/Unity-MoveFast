@@ -22,9 +22,9 @@ using UnityEngine;
 
 /*
 -----------------------
- 
+
  InspectorNoteAttribute()
- 
+
 -----------------------
 */
 public class InspectorNoteAttribute : PropertyAttribute
@@ -41,15 +41,17 @@ public class InspectorNoteAttribute : PropertyAttribute
 
 /*
 -----------------------
- 
+
  InspectorCommentAttribute()
- 
+
 -----------------------
 */
-public class InspectorCommentAttribute : PropertyAttribute {
+public class InspectorCommentAttribute : PropertyAttribute
+{
     public readonly string message;
 
-    public InspectorCommentAttribute( string message = "" ) {
+    public InspectorCommentAttribute(string message = "")
+    {
         this.message = message;
     }
 }

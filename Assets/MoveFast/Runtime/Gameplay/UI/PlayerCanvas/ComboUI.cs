@@ -47,8 +47,8 @@ namespace Oculus.Interaction.MoveFast
         {
             var currentTrack = TrackTimeline.Current?.PlayableDirector;
             bool shouldShow = currentTrack != null;
-            if (shouldShow) 
-            { 
+            if (shouldShow)
+            {
                 shouldShow &= currentTrack.name != "AirboxingTutorial"; //TODO not name reliant
                 shouldShow &= currentTrack.time > 3 && currentTrack.time < currentTrack.duration - 2;
             }

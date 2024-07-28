@@ -81,7 +81,7 @@ internal class OVRMeshGenerator
             verticesV3[i].x *= -1;
 
             uvCoords[i] = verticesV3[i];
-            normals[i] = new Vector3(0,0,1);
+            normals[i] = new Vector3(0, 0, 1);
         }
     }
 
@@ -202,7 +202,7 @@ internal class OVRMeshGenerator
     {
 
         float total = 0;
-        for(int i = 1; i < vertices.Length; i++)
+        for (int i = 1; i < vertices.Length; i++)
         {
             total += ((vertices[i].x - vertices[i - 1].x) * (vertices[i].y + vertices[i - 1].y));
         }

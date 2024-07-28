@@ -69,7 +69,7 @@ namespace Oculus.Interaction
                 Enabled = true,
                 SurfaceThreshold = 0.01f,
                 ZThreshold = 0.01f,
-                DragEaseCurve = new ProgressCurve(AnimationCurve.EaseInOut(0,0,1,1), 0.05f)
+                DragEaseCurve = new ProgressCurve(AnimationCurve.EaseInOut(0, 0, 1, 1), 0.05f)
             };
 
         [Serializable]

@@ -24,9 +24,9 @@ using System.Runtime.InteropServices;
 
 public class ONSPVersion : MonoBehaviour
 {
-       // Import functions
+    // Import functions
     public const string strONSPS = "AudioPluginOculusSpatializer";
- 
+
     [DllImport(strONSPS)]
     private static extern void ONSP_GetVersion(ref int Major, ref int Minor, ref int Patch);
 
@@ -36,14 +36,14 @@ public class ONSPVersion : MonoBehaviour
     void Awake()
     {
         int major = 0;
-        int minor = 0; 
+        int minor = 0;
         int patch = 0;
 
         ONSP_GetVersion(ref major, ref minor, ref patch);
 
         String version = System.String.Format
         ("ONSP Version: {0:F0}.{1:F0}.{2:F0}", major, minor, patch);
-        
+
         Debug.Log(version);
     }
 
@@ -59,5 +59,5 @@ public class ONSPVersion : MonoBehaviour
     /// </summary>
     void Update()
     {
-    }        
+    }
 }

@@ -53,7 +53,7 @@ namespace Oculus.Voice.Dictation.Bindings.Android
             jo.Set("inputType", _dictationConfiguration.inputType);
             if (_runtimeConfiguration != null)
             {
-                int maxRecordingTime = (int) _runtimeConfiguration.maxRecordingTime;
+                int maxRecordingTime = (int)_runtimeConfiguration.maxRecordingTime;
                 if (maxRecordingTime < 0)
                 {
                     maxRecordingTime = MAX_PLATFORM_SUPPORTED_RECORDING_TIME_SECONDS;

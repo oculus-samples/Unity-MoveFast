@@ -33,54 +33,56 @@ using UnityEngine.UI;
  */
 public class ReportingCallbackSample : MonoBehaviour
 {
-  public Text InVRConsole;
-  public Text DestinationsConsole;
+    public Text InVRConsole;
+    public Text DestinationsConsole;
 
-  // Start is called before the first frame update
-  void Start()
-  {
-    UpdateConsole("Init Oculus Platform SDK...");
-    Core.AsyncInitialize().OnComplete(message => {
-      if (message.IsError)
-      {
-        // Init failed, nothing will work
-        UpdateConsole(message.GetError().Message);
-      }
-      else
-      {
-        UpdateConsole("Init complete!");
-
-        /**
-         * Listen for when user clicks AUI report button
-         */
-        AbuseReport.SetReportButtonPressedNotificationCallback(OnReportButtonIntentNotif);
-        UpdateConsole("Registered callback");
-      }
-    });
-  }
-
-  // User has interacted with the AUI outside this app
-  void OnReportButtonIntentNotif(Message<string> message)
-  {
-    if (message.IsError)
+    // Start is called before the first frame update
+    void Start()
     {
-      UpdateConsole(message.GetError().Message);
-    } else
-    {
-      UpdateConsole("Send that response is handled");
-      AbuseReport.ReportRequestHandled(ReportRequestResponse.Handled);
-      UpdateConsole("Response has been handled!");
+        UpdateConsole("Init Oculus Platform SDK...");
+        Core.AsyncInitialize().OnComplete(message =>
+        {
+            if (message.IsError)
+            {
+                // Init failed, nothing will work
+                UpdateConsole(message.GetError().Message);
+            }
+            else
+            {
+                UpdateConsole("Init complete!");
+
+                /**
+                 * Listen for when user clicks AUI report button
+                 */
+                AbuseReport.SetReportButtonPressedNotificationCallback(OnReportButtonIntentNotif);
+                UpdateConsole("Registered callback");
+            }
+        });
     }
-  }
 
-  #region Helper Functions
+    // User has interacted with the AUI outside this app
+    void OnReportButtonIntentNotif(Message<string> message)
+    {
+        if (message.IsError)
+        {
+            UpdateConsole(message.GetError().Message);
+        }
+        else
+        {
+            UpdateConsole("Send that response is handled");
+            AbuseReport.ReportRequestHandled(ReportRequestResponse.Handled);
+            UpdateConsole("Response has been handled!");
+        }
+    }
 
-  private void UpdateConsole(string value)
-  {
-    Debug.Log(value);
+    #region Helper Functions
 
-    InVRConsole.text =
-      "Welcome to the Sample Reporting Callback App\n\n" + value;
-  }
-  #endregion
+    private void UpdateConsole(string value)
+    {
+        Debug.Log(value);
+
+        InVRConsole.text =
+          "Welcome to the Sample Reporting Callback App\n\n" + value;
+    }
+    #endregion
 }

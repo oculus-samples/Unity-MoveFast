@@ -69,13 +69,13 @@ namespace Oculus.Interaction.MoveFast
         /// <summary>
         /// When active is true, plays the timeline to the time specified by _activeTime
         /// When active is false, and if the timeline has been played, Resumes to play to the end
-        /// 
+        ///
         /// An example usage could be a door Timeline that contains a 1 second open animation and a 1 second close animation sequentially
         /// By specifying _activeTime as 1 second, when the state becomes true the timeline will play up to the end of the door open clip
         /// When it becomes false the timeline will play to the end of the door closed clip.
-        /// 
+        ///
         /// This is preferable to playing the timeline backwards
-        /// programatically as Audio tracks would not play 
+        /// programatically as Audio tracks would not play
         /// </summary>
         private void PlayTimlineUsingMiddleStoppingPoint(bool toActiveTime)
         {

@@ -61,7 +61,7 @@ namespace Oculus.Interaction.MoveFast
 
         public void ForEachInstance(System.Action<GameObject> invoke)
         {
-            foreach(var instance in _instances)
+            foreach (var instance in _instances)
             {
                 invoke(instance.Value);
             }
@@ -73,7 +73,7 @@ namespace Oculus.Interaction.MoveFast
         public void UpdateUI()
         {
             var routine = UpdateUIRoutine();
-            while (routine.MoveNext()){ };
+            while (routine.MoveNext()) { };
         }
 
         /// <summary>
@@ -155,7 +155,7 @@ namespace Oculus.Interaction.MoveFast
                 try
                 {
 #endif
-                    _uiListElements[j].HandleListElement(element);
+                _uiListElements[j].HandleListElement(element);
 #if UNITY_EDITOR
                 }
                 catch (System.Exception e)

@@ -24,7 +24,8 @@ using System.Collections;
 #if UNITY_EDITOR
     [UnityEditor.InitializeOnLoad]
 #endif
-public sealed class OvrAvatarSettings : ScriptableObject {
+public sealed class OvrAvatarSettings : ScriptableObject
+{
     public static string AppID
     {
         get { return Instance.ovrAppID; }
@@ -39,7 +40,7 @@ public sealed class OvrAvatarSettings : ScriptableObject {
 
     private static OvrAvatarSettings instance;
     public static OvrAvatarSettings Instance
-    { 
+    {
         get
         {
             if (instance == null)

@@ -124,7 +124,7 @@ namespace Oculus.Interaction
 
             // Scale logic
             float activeDistance = targetVector.magnitude;
-            if(Mathf.Abs(activeDistance) < 0.0001f) activeDistance = 0.0001f;
+            if (Mathf.Abs(activeDistance) < 0.0001f) activeDistance = 0.0001f;
 
             float scalePercentage = activeDistance / _initialDistance;
 
@@ -132,11 +132,11 @@ namespace Oculus.Interaction
             _activeScale = _initialScale * scalePercentage;
 
             // Scale constraints
-            if(_constraints.MinScale.Constrain)
+            if (_constraints.MinScale.Constrain)
             {
                 _activeScale = Mathf.Max(_constraints.MinScale.Value, _activeScale);
             }
-            if(_constraints.MaxScale.Constrain)
+            if (_constraints.MaxScale.Constrain)
             {
                 _activeScale = Mathf.Min(_constraints.MaxScale.Value, _activeScale);
             }
@@ -163,11 +163,11 @@ namespace Oculus.Interaction
 
             Vector3 targetPosition = _capturePosition;
             // Y axis constraints
-            if(_constraints.MinY.Constrain)
+            if (_constraints.MinY.Constrain)
             {
                 targetPosition.y = Mathf.Max(_constraints.MinY.Value, targetPosition.y);
             }
-            if(_constraints.MaxY.Constrain)
+            if (_constraints.MaxY.Constrain)
             {
                 targetPosition.y = Mathf.Min(_constraints.MaxY.Value, targetPosition.y);
             }

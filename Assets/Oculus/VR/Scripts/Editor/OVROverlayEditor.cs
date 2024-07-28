@@ -219,14 +219,14 @@ public class OVROverlayEditor : Editor
             EditorGUILayout.LabelField(new GUIContent("Right Eye Texture", "Texture used for the right eye"), GUILayout.Width(120));
             Texture right = (Texture)EditorGUILayout.ObjectField(overlay.textures[1] != null ? overlay.textures[1] : overlay.textures[0], typeof(Texture), true, GUILayout.Width(64), GUILayout.Height(64));
             EditorGUILayout.EndVertical();
-            
+
             overlay.textures[1] = (right == overlay.textures[0]) ? null : right;
 
             if (overlay.textures[1] == null)
             {
                 EditorGUILayout.LabelField("Right Eye Texture is null, so Left Eye Texture will be used for both eyes.", EditorStyles.wordWrappedLabel);
             }
-            
+
             EditorGUILayout.EndHorizontal();
 
             overlay.isDynamic = EditorGUILayout.Toggle(new GUIContent("Dynamic Texture", "This texture will be updated dynamically at runtime (e.g., Video)"), overlay.isDynamic);

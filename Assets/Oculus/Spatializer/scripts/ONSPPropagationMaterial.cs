@@ -66,17 +66,17 @@ public sealed class ONSPPropagationMaterial : MonoBehaviour
         public float frequency;
         public float data;
 
-        public Point( float frequency = 0, float data = 0 )
+        public Point(float frequency = 0, float data = 0)
         {
             this.frequency = frequency;
             this.data = data;
         }
-        
+
         public static implicit operator Point(Vector2 v)
         {
             return new Point(v.x, v.y);
         }
-        
+
         public static implicit operator Vector2(Point point)
         {
             return new Vector2(point.frequency, point.data);
@@ -130,21 +130,21 @@ public sealed class ONSPPropagationMaterial : MonoBehaviour
             }
         }
     }
-    
+
     //***********************************************************************
     // Private Fields
-    
+
     public IntPtr materialHandle = IntPtr.Zero;
-    
+
     //***********************************************************************
     // Public Fields
-    
+
     [Tooltip("Absorption")]
-    public Spectrum absorption   = new Spectrum();
+    public Spectrum absorption = new Spectrum();
     [Tooltip("Transmission")]
     public Spectrum transmission = new Spectrum();
     [Tooltip("Scattering")]
-    public Spectrum scattering   = new Spectrum();
+    public Spectrum scattering = new Spectrum();
 
     [SerializeField]
     private Preset preset_ = Preset.Custom;
@@ -153,14 +153,14 @@ public sealed class ONSPPropagationMaterial : MonoBehaviour
         get { return preset_; }
         set
         {
-            this.SetPreset( value );
+            this.SetPreset(value);
             preset_ = value;
         }
     }
-    
+
     //***********************************************************************
     // Start / Destroy
-    
+
     /// Initialize the audio material. This is called after Awake() and before the first Update().
     void Start()
     {
@@ -170,17 +170,17 @@ public sealed class ONSPPropagationMaterial : MonoBehaviour
     public void StartInternal()
     {
         // Ensure that the material is not initialized twice.
-        if ( materialHandle != IntPtr.Zero )
+        if (materialHandle != IntPtr.Zero)
             return;
-                        
+
         // Create the internal material.
-        if (ONSPPropagation.Interface.CreateAudioMaterial( out materialHandle ) != ONSPPropagationGeometry.OSPSuccess)
+        if (ONSPPropagation.Interface.CreateAudioMaterial(out materialHandle) != ONSPPropagationGeometry.OSPSuccess)
             throw new Exception("Unable to create internal audio material");
-        
+
         // Run the updates to initialize the material.
         UploadMaterial();
     }
-    
+
     /// Destroy the audio scene. This is called when the scene is deleted.
     void OnDestroy()
     {
@@ -189,34 +189,34 @@ public sealed class ONSPPropagationMaterial : MonoBehaviour
 
     public void DestroyInternal()
     {
-        if ( materialHandle != IntPtr.Zero )
+        if (materialHandle != IntPtr.Zero)
         {
             // Destroy the material.
             ONSPPropagation.Interface.DestroyAudioMaterial(materialHandle);
             materialHandle = IntPtr.Zero;
         }
     }
-    
+
     //***********************************************************************
     // Upload
-    
+
     public void UploadMaterial()
     {
-        if ( materialHandle == IntPtr.Zero )
+        if (materialHandle == IntPtr.Zero)
             return;
 
         // Absorption
         ONSPPropagation.Interface.AudioMaterialReset(materialHandle, MaterialProperty.ABSORPTION);
 
-        foreach ( Point p in absorption.points )
-            ONSPPropagation.Interface.AudioMaterialSetFrequency(materialHandle, MaterialProperty.ABSORPTION, 
-                                                          p.frequency, p.data );
+        foreach (Point p in absorption.points)
+            ONSPPropagation.Interface.AudioMaterialSetFrequency(materialHandle, MaterialProperty.ABSORPTION,
+                                                          p.frequency, p.data);
 
         // Transmission
         ONSPPropagation.Interface.AudioMaterialReset(materialHandle, MaterialProperty.TRANSMISSION);
 
         foreach (Point p in transmission.points)
-            ONSPPropagation.Interface.AudioMaterialSetFrequency(materialHandle, MaterialProperty.TRANSMISSION, 
+            ONSPPropagation.Interface.AudioMaterialSetFrequency(materialHandle, MaterialProperty.TRANSMISSION,
                                                           p.frequency, p.data);
 
         // Scattering
@@ -230,50 +230,50 @@ public sealed class ONSPPropagationMaterial : MonoBehaviour
 
     //***********************************************************************
 
-    public void SetPreset(Preset preset )
+    public void SetPreset(Preset preset)
     {
         ONSPPropagationMaterial material = this;
 
-        switch ( preset )
+        switch (preset)
         {
-            case Preset.AcousticTile:            AcousticTile(ref material);                break;
-            case Preset.Brick:                    Brick(ref material);                    break;
-            case Preset.BrickPainted:            BrickPainted(ref material);                break;
-            case Preset.Carpet:                    Carpet(ref material);                    break;
-            case Preset.CarpetHeavy:            CarpetHeavy(ref material);                break;
-            case Preset.CarpetHeavyPadded:        CarpetHeavyPadded(ref material);        break;
-            case Preset.CeramicTile:            CeramicTile(ref material);                break;
-            case Preset.Concrete:                Concrete(ref material);                    break;
-            case Preset.ConcreteRough:            ConcreteRough(ref material);            break;
-            case Preset.ConcreteBlock:            ConcreteBlock(ref material);            break;
-            case Preset.ConcreteBlockPainted:    ConcreteBlockPainted(ref material);        break;
-            case Preset.Curtain:                Curtain(ref material);                    break;
-            case Preset.Foliage:                Foliage(ref material);                    break;
-            case Preset.Glass:                    Glass(ref material);                    break;
-            case Preset.GlassHeavy:                GlassHeavy(ref material);                break;
-            case Preset.Grass:                    Grass(ref material);                    break;
-            case Preset.Gravel:                    Gravel(ref material);                    break;
-            case Preset.GypsumBoard:            GypsumBoard(ref material);                break;
-            case Preset.PlasterOnBrick:            PlasterOnBrick(ref material);            break;
-            case Preset.PlasterOnConcreteBlock:    PlasterOnConcreteBlock(ref material);    break;
-            case Preset.Soil:                    Soil(ref material);                        break;
-            case Preset.SoundProof:                SoundProof(ref material);                break;
-            case Preset.Snow:                    Snow(ref material);                        break;
-            case Preset.Steel:                    Steel(ref material);                    break;
-            case Preset.Water:                    Water(ref material);                    break;
-            case Preset.WoodThin:                WoodThin(ref material);                    break;
-            case Preset.WoodThick:                WoodThick(ref material);                break;
-            case Preset.WoodFloor:                WoodFloor(ref material);                break;
-            case Preset.WoodOnConcrete:            WoodOnConcrete(ref material);            break;
+            case Preset.AcousticTile: AcousticTile(ref material); break;
+            case Preset.Brick: Brick(ref material); break;
+            case Preset.BrickPainted: BrickPainted(ref material); break;
+            case Preset.Carpet: Carpet(ref material); break;
+            case Preset.CarpetHeavy: CarpetHeavy(ref material); break;
+            case Preset.CarpetHeavyPadded: CarpetHeavyPadded(ref material); break;
+            case Preset.CeramicTile: CeramicTile(ref material); break;
+            case Preset.Concrete: Concrete(ref material); break;
+            case Preset.ConcreteRough: ConcreteRough(ref material); break;
+            case Preset.ConcreteBlock: ConcreteBlock(ref material); break;
+            case Preset.ConcreteBlockPainted: ConcreteBlockPainted(ref material); break;
+            case Preset.Curtain: Curtain(ref material); break;
+            case Preset.Foliage: Foliage(ref material); break;
+            case Preset.Glass: Glass(ref material); break;
+            case Preset.GlassHeavy: GlassHeavy(ref material); break;
+            case Preset.Grass: Grass(ref material); break;
+            case Preset.Gravel: Gravel(ref material); break;
+            case Preset.GypsumBoard: GypsumBoard(ref material); break;
+            case Preset.PlasterOnBrick: PlasterOnBrick(ref material); break;
+            case Preset.PlasterOnConcreteBlock: PlasterOnConcreteBlock(ref material); break;
+            case Preset.Soil: Soil(ref material); break;
+            case Preset.SoundProof: SoundProof(ref material); break;
+            case Preset.Snow: Snow(ref material); break;
+            case Preset.Steel: Steel(ref material); break;
+            case Preset.Water: Water(ref material); break;
+            case Preset.WoodThin: WoodThin(ref material); break;
+            case Preset.WoodThick: WoodThick(ref material); break;
+            case Preset.WoodFloor: WoodFloor(ref material); break;
+            case Preset.WoodOnConcrete: WoodOnConcrete(ref material); break;
             case Preset.Custom:
                 break;
             default:
                 break;
         }
     }
-    
+
     //***********************************************************************
-    
+
     private static void AcousticTile(ref ONSPPropagationMaterial material)
     {
         material.absorption.points = new List<Point>{
@@ -314,7 +314,7 @@ public sealed class ONSPPropagationMaterial : MonoBehaviour
     {
         material.absorption.points = new List<Point>{
             new Point(125f, .01f), new Point(250f, .05f), new Point(500f, .10f), new Point(1000f, .20f), new Point(2000f, .45f), new Point(4000f, .65f) };
-        
+
         material.scattering.points = new List<Point>{
             new Point(125f, .10f), new Point(250f, .10f), new Point(500f, .15f), new Point(1000f, .20f), new Point(2000f, .30f), new Point(4000f, .45f) };
 
@@ -386,7 +386,7 @@ public sealed class ONSPPropagationMaterial : MonoBehaviour
     {
         material.absorption.points = new List<Point>{
             new Point(125f, .36f), new Point(250f, .44f), new Point(500f, .31f), new Point(1000f, .29f), new Point(2000f, .39f), new Point(4000f, .21f) };
-            
+
         material.scattering.points = new List<Point>{
             new Point(125f, .10f), new Point(250f, .12f), new Point(500f, .15f), new Point(1000f, .20f), new Point(2000f, .30f), new Point(4000f, .40f) };
 
@@ -398,7 +398,7 @@ public sealed class ONSPPropagationMaterial : MonoBehaviour
     {
         material.absorption.points = new List<Point>{
             new Point(125f, .10f), new Point(250f, .05f), new Point(500f, .06f), new Point(1000f, .07f), new Point(2000f, .09f), new Point(4000f, .08f) };
-        
+
         material.scattering.points = new List<Point>{
             new Point(125f, .10f), new Point(250f, .11f), new Point(500f, .13f), new Point(1000f, .15f), new Point(2000f, .16f), new Point(4000f, .20f) };
 
@@ -425,11 +425,11 @@ public sealed class ONSPPropagationMaterial : MonoBehaviour
 
         material.scattering.points = new List<Point>{
             new Point(125f, .20f), new Point(250f, .3f), new Point(500f, .4f), new Point(1000f, .5f), new Point(2000f, .7f), new Point(4000f, .8f) };
-        
+
         material.transmission.points = new List<Point>(){
             new Point(125f, .9f), new Point(250f, .9f), new Point(500f, .9f), new Point(1000f, .8f), new Point(2000f, .5f), new Point(4000f, .3f) };
     }
-    
+
     private static void Glass(ref ONSPPropagationMaterial material)
     {
         material.absorption.points = new List<Point>{
@@ -483,7 +483,7 @@ public sealed class ONSPPropagationMaterial : MonoBehaviour
 
         material.scattering.points = new List<Point>{
             new Point(125f, .10f), new Point(250f, .11f), new Point(500f, .12f), new Point(1000f, .13f), new Point(2000f, .14f), new Point(4000f, .15f) };
-            
+
         material.transmission.points = new List<Point>(){
             new Point(125f, .035f), new Point(250f, .0125f), new Point(500f, .0056f), new Point(1000f, .0025f), new Point(2000f, .0013f), new Point(4000f, .0032f) };
     }
@@ -525,8 +525,8 @@ public sealed class ONSPPropagationMaterial : MonoBehaviour
 
     private static void SoundProof(ref ONSPPropagationMaterial material)
     {
-        material.absorption.points = new List<Point>{ new Point(1000f, 1.0f) };
-        material.scattering.points = new List<Point>{ new Point(1000f, 0.0f) };
+        material.absorption.points = new List<Point> { new Point(1000f, 1.0f) };
+        material.scattering.points = new List<Point> { new Point(1000f, 0.0f) };
         material.transmission.points = new List<Point>();
     }
 
@@ -548,7 +548,7 @@ public sealed class ONSPPropagationMaterial : MonoBehaviour
 
         material.scattering.points = new List<Point>{
             new Point(125f, .10f), new Point(250f, .10f), new Point(500f, .10f), new Point(1000f, .10f), new Point(2000f, .10f), new Point(4000f, .10f) };
-            
+
         material.transmission.points = new List<Point>(){
             new Point(125f, .25f), new Point(250f, .2f), new Point(500f, .17f), new Point(1000f, .089f), new Point(2000f, .089f), new Point(4000f, .0056f) };
     }
@@ -560,7 +560,7 @@ public sealed class ONSPPropagationMaterial : MonoBehaviour
 
         material.scattering.points = new List<Point>{
             new Point(125f, .10f), new Point(250f, .10f), new Point(500f, .10f), new Point(1000f, .07f), new Point(2000f, .05f), new Point(4000f, .05f) };
-            
+
         material.transmission.points = new List<Point>(){
             new Point(125f, .03f), new Point(250f, .03f), new Point(500f, .03f), new Point(1000f, .02f), new Point(2000f, .015f), new Point(4000f, .01f) };
     }
@@ -572,7 +572,7 @@ public sealed class ONSPPropagationMaterial : MonoBehaviour
 
         material.scattering.points = new List<Point>{
             new Point(125f, .10f), new Point(250f, .10f), new Point(500f, .10f), new Point(1000f, .10f), new Point(2000f, .10f), new Point(4000f, .15f) };
-            
+
         material.transmission.points = new List<Point>(){
             new Point(125f, .2f), new Point(250f, .125f), new Point(500f, .079f), new Point(1000f, .1f), new Point(2000f, .089f), new Point(4000f, .05f) };
     }
@@ -584,7 +584,7 @@ public sealed class ONSPPropagationMaterial : MonoBehaviour
 
         material.scattering.points = new List<Point>{
             new Point(125f, .10f), new Point(250f, .10f), new Point(500f, .10f), new Point(1000f, .10f), new Point(2000f, .10f), new Point(4000f, .15f) };
-            
+
         material.transmission.points = new List<Point>(){
             new Point(125f, .035f), new Point(250f, .028f), new Point(500f, .028f), new Point(1000f, .028f), new Point(2000f, .011f), new Point(4000f, .0071f) };
     }
@@ -605,7 +605,7 @@ public sealed class ONSPPropagationMaterial : MonoBehaviour
     {
         material.absorption.points = new List<Point>{
             new Point(125f, .04f),  new Point(250f, .04f), new Point(500f, .07f), new Point(1000f, .06f),  new Point(2000f, .06f), new Point(4000f, .07f) };
-        
+
         material.scattering.points = new List<Point>{
             new Point(125f, .10f), new Point(250f, .10f), new Point(500f, .10f), new Point(1000f, .10f), new Point(2000f, .10f), new Point(4000f, .15f) };
 

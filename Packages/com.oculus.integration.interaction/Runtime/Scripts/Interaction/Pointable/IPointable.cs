@@ -33,7 +33,7 @@ namespace Oculus.Interaction
         Cancel
     }
 
-    public struct PointerEvent: IEvent
+    public struct PointerEvent : IEvent
     {
         public int Identifier { get; }
         public PointerEventType Type { get; }

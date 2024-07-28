@@ -384,7 +384,7 @@ namespace Oculus.Interaction
                     break;
                 }
 
-                if(State == InteractorState.Select)
+                if (State == InteractorState.Select)
                 {
                     if (ShouldUnselect)
                     {

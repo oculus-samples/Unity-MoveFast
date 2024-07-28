@@ -20,9 +20,9 @@
 
 /************************************************************************************
 
-See SampleFramework license.txt for license terms.  Unless required by applicable law 
-or agreed to in writing, the sample code is provided “AS IS” WITHOUT WARRANTIES OR 
-CONDITIONS OF ANY KIND, either express or implied.  See the license for specific 
+See SampleFramework license.txt for license terms.  Unless required by applicable law
+or agreed to in writing, the sample code is provided “AS IS” WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied.  See the license for specific
 language governing permissions and limitations under the license.
 
 ************************************************************************************/
@@ -34,7 +34,7 @@ using System.Collections;
 public class TeleportAimVisualLaser : TeleportSupport
 {
     /// <summary>
-    /// This prefab will be instantiated when the aim visual is awakened, and will be set active when the 
+    /// This prefab will be instantiated when the aim visual is awakened, and will be set active when the
     /// user is aiming, and deactivated when they are done aiming.
     /// </summary>
     [Tooltip("This prefab will be instantiated when the aim visual is awakened, and will be set active when the user is aiming, and deactivated when they are done aiming.")]

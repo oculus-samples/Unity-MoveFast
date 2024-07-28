@@ -261,7 +261,7 @@ namespace Oculus.Interaction.MoveFast
                 case Ease.QuadInOut: return t < 0.5f ? Quad(t * 2) / 2 : 1 - Quad((1 - t) * 2) / 2;
                 default: throw new Exception($"Cant ease {ease}");
             }
-            
+
             static float Quad(float t) => t * t;
         }
 

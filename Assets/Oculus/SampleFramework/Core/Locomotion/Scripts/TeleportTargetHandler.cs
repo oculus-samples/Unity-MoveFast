@@ -20,9 +20,9 @@
 
 /************************************************************************************
 
-See SampleFramework license.txt for license terms.  Unless required by applicable law 
-or agreed to in writing, the sample code is provided “AS IS” WITHOUT WARRANTIES OR 
-CONDITIONS OF ANY KIND, either express or implied.  See the license for specific 
+See SampleFramework license.txt for license terms.  Unless required by applicable law
+or agreed to in writing, the sample code is provided “AS IS” WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied.  See the license for specific
 language governing permissions and limitations under the license.
 
 ************************************************************************************/
@@ -57,7 +57,7 @@ public abstract class TeleportTargetHandler : TeleportSupport
     {
         _startAimAction = () => { StartCoroutine(TargetAimCoroutine()); };
     }
-    
+
     protected override void AddEventHandlers()
     {
         base.AddEventHandlers();
@@ -84,7 +84,7 @@ public abstract class TeleportTargetHandler : TeleportSupport
             // With each targeting test, we need to reset the AimData to clear the point list and reset flags.
             ResetAimData();
 
-            // Start the testing with the character's current position to the aiming origin to ensure they 
+            // Start the testing with the character's current position to the aiming origin to ensure they
             // haven't just stuck their hand through something that should have prevented movement.
             //
             // The first test won't be added to the aim data results because the visual effects should be from
@@ -97,7 +97,7 @@ public abstract class TeleportTargetHandler : TeleportSupport
             _aimPoints.Clear();
             LocomotionTeleport.AimHandler.GetPoints(_aimPoints);
 
-            for(int i = 0; i < _aimPoints.Count; i++)
+            for (int i = 0; i < _aimPoints.Count; i++)
             {
                 var adjustedPoint = _aimPoints[i];
                 AimData.TargetValid = ConsiderTeleport(current, ref adjustedPoint);
@@ -115,7 +115,7 @@ public abstract class TeleportTargetHandler : TeleportSupport
         }
     }
 
-    /// When a parabolic or other aiming method that consists of many line segments is being used, ConsiderTeleport 
+    /// When a parabolic or other aiming method that consists of many line segments is being used, ConsiderTeleport
     /// will be called once for each segment so if there is expensive work that can be cached in advance,
     /// override the ResetAimData method to prepare that data.
     protected virtual void ResetAimData()
@@ -125,7 +125,7 @@ public abstract class TeleportTargetHandler : TeleportSupport
 
     /// <summary>
     /// This method will be called while the LocmotionTeleport component is in the aiming state, once for each
-    /// line segment that the targeting beam requires. 
+    /// line segment that the targeting beam requires.
     /// The function should return true whenever an actual target location has been selected.
     /// </summary>
     /// <param name="start"></param>
@@ -157,6 +157,6 @@ public abstract class TeleportTargetHandler : TeleportSupport
         {
             return null;
         }
-        return location; 
+        return location;
     }
 }

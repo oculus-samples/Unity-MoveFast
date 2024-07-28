@@ -48,7 +48,7 @@ public class GazeTargetSpawner : MonoBehaviour
         }
     }
 
-    void Start ()
+    void Start()
     {
         for (int i = 0; i < NumberOfDummyTargets; ++i)
         {

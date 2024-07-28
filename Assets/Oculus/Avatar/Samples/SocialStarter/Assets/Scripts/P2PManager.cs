@@ -102,7 +102,7 @@ public class P2PManager
     #endregion
 
     #region Message Sending
-    
+
     public void SendAvatarUpdate(ulong userID, Transform rootTransform, UInt32 sequence, byte[] avatarPacket)
     {
         const int UPDATE_DATA_LENGTH = 41;
@@ -165,7 +165,7 @@ public class P2PManager
 
         }
     }
-    
+
     public void processAvatarPacket(RemotePlayer remote, ref byte[] packet, ref int offset)
     {
         if (remote == null)
@@ -181,7 +181,7 @@ public class P2PManager
         remote.receivedRootRotation.y = ReadFloat(packet, ref offset);
         remote.receivedRootRotation.z = ReadFloat(packet, ref offset);
         remote.receivedRootRotation.w = ReadFloat(packet, ref offset);
-        
+
         remote.RemoteAvatar.transform.position = remote.receivedRootPosition;
         remote.RemoteAvatar.transform.rotation = remote.receivedRootRotation;
 

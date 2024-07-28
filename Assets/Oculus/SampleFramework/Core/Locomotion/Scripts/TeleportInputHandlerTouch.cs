@@ -20,9 +20,9 @@
 
 /************************************************************************************
 
-See SampleFramework license.txt for license terms.  Unless required by applicable law 
-or agreed to in writing, the sample code is provided “AS IS” WITHOUT WARRANTIES OR 
-CONDITIONS OF ANY KIND, either express or implied.  See the license for specific 
+See SampleFramework license.txt for license terms.  Unless required by applicable law
+or agreed to in writing, the sample code is provided “AS IS” WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied.  See the license for specific
 language governing permissions and limitations under the license.
 
 ************************************************************************************/
@@ -126,7 +126,7 @@ public class TeleportInputHandlerTouch : TeleportInputHandlerHMD
     [Tooltip("The thumbstick magnitude required to trigger aiming and teleports when InputMode==InputModes.ThumbstickTeleport")]
     public float ThumbstickTeleportThreshold = 0.5f;
 
-    void Start ()
+    void Start()
     {
     }
 
@@ -184,7 +184,7 @@ public class TeleportInputHandlerTouch : TeleportInputHandlerHMD
             }
             else
             {
-                if(leftMag > rightMag)
+                if (leftMag > rightMag)
                 {
                     bestMag = leftMag;
                     bestController = OVRInput.Controller.LTouch;
@@ -204,7 +204,7 @@ public class TeleportInputHandlerTouch : TeleportInputHandlerHMD
             {
                 if (LocomotionTeleport.CurrentIntention == LocomotionTeleport.TeleportIntentions.Aim)
                 {
-                    // If the user has released the thumbstick, enter the PreTeleport state unless FastTeleport is enabled, 
+                    // If the user has released the thumbstick, enter the PreTeleport state unless FastTeleport is enabled,
                     // in which case enter the Teleport state.
                     return FastTeleport ? LocomotionTeleport.TeleportIntentions.Teleport : LocomotionTeleport.TeleportIntentions.PreTeleport;
                 }
@@ -241,7 +241,7 @@ public class TeleportInputHandlerTouch : TeleportInputHandlerHMD
             // If the user has actually pressed the teleport button, enter the preteleport state.
             if (OVRInput.GetDown(teleportButton))
             {
-                // If the user has released the thumbstick, enter the PreTeleport state unless FastTeleport is enabled, 
+                // If the user has released the thumbstick, enter the PreTeleport state unless FastTeleport is enabled,
                 // in which case enter the Teleport state.
                 return FastTeleport ? LocomotionTeleport.TeleportIntentions.Teleport : LocomotionTeleport.TeleportIntentions.PreTeleport;
             }
@@ -261,7 +261,7 @@ public class TeleportInputHandlerTouch : TeleportInputHandlerHMD
         }
 
         // If it made it this far, then we need to determine if the user intends to be aiming with the capacitive touch.
-        // The first check is if cap touch has been triggered. 
+        // The first check is if cap touch has been triggered.
         if (OVRInput.GetDown(_rawTouch[(int)CapacitiveAimAndTeleportButton]))
         {
             return LocomotionTeleport.TeleportIntentions.Aim;
@@ -281,7 +281,7 @@ public class TeleportInputHandlerTouch : TeleportInputHandlerHMD
     public override void GetAimData(out Ray aimRay)
     {
         OVRInput.Controller sourceController = AimingController;
-        if(sourceController == OVRInput.Controller.Touch)
+        if (sourceController == OVRInput.Controller.Touch)
         {
             sourceController = InitiatingController;
         }

@@ -62,7 +62,7 @@ public interface OVRMixedRealityCaptureConfiguration
 #if UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN || UNITY_ANDROID
 public static class OVRMixedRealityCaptureConfigurationExtensions
 {
-    public static void ApplyTo(this OVRMixedRealityCaptureConfiguration dest, OVRMixedRealityCaptureConfiguration source) 
+    public static void ApplyTo(this OVRMixedRealityCaptureConfiguration dest, OVRMixedRealityCaptureConfiguration source)
     {
         dest.ReadFrom(source);
     }

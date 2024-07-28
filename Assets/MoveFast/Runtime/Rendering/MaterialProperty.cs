@@ -26,9 +26,9 @@ namespace Oculus.Interaction.MoveFast
 {
     /// <summary>
     /// Similar to MaterialPropertyBlockEditor but a single property without specifying implementation techinique
-    /// Using an Object per property (rather than a list) allows animation via the Animation/Animator components    /// 
+    /// Using an Object per property (rather than a list) allows animation via the Animation/Animator components    ///
     /// </summary>
-    /* TODO shouldnt use MaterialPropertyBlock on URP since it breaks SRPBatcher, 
+    /* TODO shouldnt use MaterialPropertyBlock on URP since it breaks SRPBatcher,
      * Definition already supports materials, just need to add material management */
     public class MaterialProperty : MonoBehaviour
     {
@@ -65,7 +65,7 @@ namespace Oculus.Interaction.MoveFast
         }
 
         /// <summary>
-        /// Holds a definition for a material property and exposes to 
+        /// Holds a definition for a material property and exposes to
         /// ApplyTo methods for appling to materials or propertyblocks
         /// </summary>
         [Serializable]

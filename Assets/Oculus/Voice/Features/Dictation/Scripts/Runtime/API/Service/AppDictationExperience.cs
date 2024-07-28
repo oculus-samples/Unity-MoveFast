@@ -85,7 +85,7 @@ namespace Oculus.Voice.Dictation
             // Clean up if we're switching to native C# wit impl
             if (!UsePlatformIntegrations && _dictationServiceImpl is PlatformDictationImpl)
             {
-                ((PlatformDictationImpl) _dictationServiceImpl).Disconnect();
+                ((PlatformDictationImpl)_dictationServiceImpl).Disconnect();
             }
 #if UNITY_ANDROID && !UNITY_EDITOR
             var loggerImpl = new VoiceSDKPlatformLoggerImpl();

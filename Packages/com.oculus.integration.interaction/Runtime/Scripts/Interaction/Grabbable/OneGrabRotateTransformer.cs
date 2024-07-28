@@ -57,10 +57,10 @@ namespace Oculus.Interaction
         [SerializeField]
         private OneGrabRotateConstraints _constraints =
             new OneGrabRotateConstraints()
-        {
-            MinAngle = new FloatConstraint(),
-            MaxAngle = new FloatConstraint()
-        };
+            {
+                MinAngle = new FloatConstraint(),
+                MaxAngle = new FloatConstraint()
+            };
 
         public OneGrabRotateConstraints Constraints
         {

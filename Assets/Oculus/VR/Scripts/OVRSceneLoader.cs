@@ -127,7 +127,7 @@ public class OVRSceneLoader : MonoBehaviour
                 }
             }
         }
-        catch(Exception e)
+        catch (Exception e)
         {
             logTextBox.text += "<color=red>" + e.Message + "</color>";
             return;
@@ -140,7 +140,7 @@ public class OVRSceneLoader : MonoBehaviour
             formattedLogText = logTextBox.text;
             string[] scenePaths = mainSceneBundle.GetAllScenePaths();
             string sceneName = Path.GetFileNameWithoutExtension(scenePaths[0]);
-            
+
             loadSceneOperation = SceneManager.LoadSceneAsync(sceneName);
             loadSceneOperation.completed += LoadSceneOperation_completed;
         }
@@ -174,7 +174,7 @@ public class OVRSceneLoader : MonoBehaviour
                 {
                     logTextBox.text = formattedLogText.Replace("{0:P0}", "<color=green>DONE</color>");
                     logTextBox.text += "Transitioning to new scene.\nLoad times will vary depending on scene complexity.\n";
-                    
+
                 }
             }
         }
@@ -260,7 +260,7 @@ public class OVRSceneLoader : MonoBehaviour
                 }
                 loadedAssetBundles.Clear();
 
-                // Unload all scenes in the hierarchy including main scene and 
+                // Unload all scenes in the hierarchy including main scene and
                 // its dependent additive scenes.
                 int activeScenes = SceneManager.sceneCount;
                 for (int i = 0; i < activeScenes; i++)

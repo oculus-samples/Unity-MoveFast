@@ -23,7 +23,8 @@ using System.Collections;
 using System;
 using Oculus.Avatar;
 
-public class OvrAvatarSkinnedMeshRenderPBSComponent : OvrAvatarRenderComponent {
+public class OvrAvatarSkinnedMeshRenderPBSComponent : OvrAvatarRenderComponent
+{
 
     bool isMaterialInitilized = false;
 

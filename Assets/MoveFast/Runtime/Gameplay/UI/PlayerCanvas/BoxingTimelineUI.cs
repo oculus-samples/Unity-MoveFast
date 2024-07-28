@@ -90,11 +90,11 @@ namespace Oculus.Interaction.MoveFast
             }
         }
 
-        private bool IsDisplayable(TimeRange range) 
+        private bool IsDisplayable(TimeRange range)
         {
             switch (range.TimelineName)
             {
-                case "boxing": 
+                case "boxing":
                 case "rest":
                 case "cooldown":
                     return true;

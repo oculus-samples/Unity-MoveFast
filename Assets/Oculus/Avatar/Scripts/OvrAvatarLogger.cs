@@ -38,17 +38,17 @@ namespace Oculus.Avatar
             System.Diagnostics.Conditional("ENABLE_AVATAR_LOG_BASIC")]
         public static void Log(string logMsg, Object context)
         {
-            Debug.Log(LogAvatar + logMsg , context);
+            Debug.Log(LogAvatar + logMsg, context);
         }
 
-        [System.Diagnostics.Conditional("ENABLE_AVATAR_LOGS"), 
+        [System.Diagnostics.Conditional("ENABLE_AVATAR_LOGS"),
             System.Diagnostics.Conditional("ENABLE_AVATAR_LOG_WARNING")]
         public static void LogWarning(string logMsg)
         {
             Debug.LogWarning(LogAvatar + logMsg);
         }
 
-        [System.Diagnostics.Conditional("ENABLE_AVATAR_LOGS"), 
+        [System.Diagnostics.Conditional("ENABLE_AVATAR_LOGS"),
             System.Diagnostics.Conditional("ENABLE_AVATAR_LOG_ERROR")]
         public static void LogError(string logMsg)
         {

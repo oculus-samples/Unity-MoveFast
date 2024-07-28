@@ -43,14 +43,14 @@ namespace Oculus.Interaction
         [SerializeField]
         private OneGrabTranslateConstraints _constraints =
             new OneGrabTranslateConstraints()
-        {
-            MinX = new FloatConstraint(),
-            MaxX = new FloatConstraint(),
-            MinY = new FloatConstraint(),
-            MaxY = new FloatConstraint(),
-            MinZ = new FloatConstraint(),
-            MaxZ = new FloatConstraint()
-        };
+            {
+                MinX = new FloatConstraint(),
+                MaxX = new FloatConstraint(),
+                MinY = new FloatConstraint(),
+                MaxY = new FloatConstraint(),
+                MinZ = new FloatConstraint(),
+                MaxZ = new FloatConstraint()
+            };
 
         public OneGrabTranslateConstraints Constraints
         {

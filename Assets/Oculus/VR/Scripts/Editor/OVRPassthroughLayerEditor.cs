@@ -49,7 +49,8 @@ class SerializedSurfaceGeometryPropertyDrawer : PropertyDrawer
 }
 
 [CustomEditor(typeof(OVRPassthroughLayer))]
-public class OVRPassthroughLayerEditor : Editor {
+public class OVRPassthroughLayerEditor : Editor
+{
     private readonly static string[] _selectableColorMapNames = {
         "None",
         "Color Adjustment",
@@ -125,7 +126,8 @@ public class OVRPassthroughLayerEditor : Editor {
         if (layer.colorMapEditorType == ColorMapEditorType.Grayscale
             || layer.colorMapEditorType == ColorMapEditorType.GrayscaleToColor
             || layer.colorMapEditorType == ColorMapEditorType.ColorAdjustment
-        ) {
+        )
+        {
             layer.colorMapEditorContrast = EditorGUILayout.Slider("Contrast", layer.colorMapEditorContrast, -1, 1);
             layer.colorMapEditorBrightness = EditorGUILayout.Slider("Brightness", layer.colorMapEditorBrightness, -1, 1);
         }

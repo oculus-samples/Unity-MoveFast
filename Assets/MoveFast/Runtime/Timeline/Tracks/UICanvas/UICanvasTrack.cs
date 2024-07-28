@@ -31,11 +31,11 @@ public class UICanvasTrack : TrackAsset
 {
     public override Playable CreateTrackMixer(PlayableGraph graph, GameObject go, int inputCount)
     {
-        return ScriptPlayable<UICanvasMixerBehaviour>.Create (graph, inputCount);
+        return ScriptPlayable<UICanvasMixerBehaviour>.Create(graph, inputCount);
     }
 
     // Please note this assumes only one component of type UICanvas on the same gameobject.
-    public override void GatherProperties (PlayableDirector director, IPropertyCollector driver)
+    public override void GatherProperties(PlayableDirector director, IPropertyCollector driver)
     {
 #if UNITY_EDITOR
         UICanvas trackBinding = director.GetGenericBinding(this) as UICanvas;
@@ -46,6 +46,6 @@ public class UICanvasTrack : TrackAsset
         CanvasGroup group = trackBinding.GetComponent<CanvasGroup>();
         driver.AddFromName<CanvasGroup>(trackBinding.gameObject, "m_Alpha");
 #endif
-        base.GatherProperties (director, driver);
+        base.GatherProperties(director, driver);
     }
 }

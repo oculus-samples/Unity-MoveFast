@@ -209,7 +209,7 @@ namespace Oculus.Interaction.MoveFast
         {
             if (a.count == b.count)
             {
-                for (int i = 0; i < a.count -1; i++)
+                for (int i = 0; i < a.count - 1; i++)
                 {
                     int ai = a.start + i;
                     int bi = b.start + i;
@@ -225,7 +225,7 @@ namespace Oculus.Interaction.MoveFast
                 float bIncrement = b.count / (float)a.count;
                 float bFloatIndex = 0;
 
-                for (int i = 0; i < a.count-1; i++)
+                for (int i = 0; i < a.count - 1; i++)
                 {
                     int aIndex = a.start + i;
                     int bIndex = b.start + (int)bFloatIndex;
@@ -281,7 +281,7 @@ namespace Oculus.Interaction.MoveFast
         {
             var rect = rectTransform.rect;
             RectangleSegment result = default;
-            
+
             for (int i = 0; i < 4; i++)
             {
                 var inset = insets[i];
@@ -299,7 +299,7 @@ namespace Oculus.Interaction.MoveFast
                     cornerOffset = ClampOffset(i, corner, cornerOffset, radius);
                 }
 
-                result[i] = AddCornerSegment(cornerOffset, i/4f, (i+1)/4f, radius, color, affectByGradient);
+                result[i] = AddCornerSegment(cornerOffset, i / 4f, (i + 1) / 4f, radius, color, affectByGradient);
             }
 
             return result;
@@ -432,7 +432,7 @@ namespace Oculus.Interaction.MoveFast
             if (shadow.blur > 0)
             {
                 var outer = AddRectangle(centerInset, outerRadius, edgeColor, offset, false);
-                for (float i = 1; i <= _shadowQuality-1; i++)
+                for (float i = 1; i <= _shadowQuality - 1; i++)
                 {
                     float n = i / _shadowQuality;
                     var mid = AddRectangle(centerInset, Mathf.Lerp(outerRadius, innerRadius, n), Color.Lerp(edgeColor, middleColor, n * n), offset, false);
@@ -493,7 +493,7 @@ namespace Oculus.Interaction.MoveFast
 
         private float ClampRadiusToHalfRectSize(float radius)
         {
-            var halfSize = rectTransform.rect.size/2f;
+            var halfSize = rectTransform.rect.size / 2f;
             return Mathf.Clamp(radius, 0, Mathf.Min(halfSize.x, halfSize.y));
         }
 

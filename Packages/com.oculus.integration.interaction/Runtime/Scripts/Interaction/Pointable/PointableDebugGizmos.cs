@@ -43,7 +43,8 @@ namespace Oculus.Interaction
 
         #region Properties
 
-        public float Radius {
+        public float Radius
+        {
             get
             {
                 return _radius;
@@ -139,7 +140,7 @@ namespace Oculus.Interaction
             {
                 case PointerEventType.Hover:
                     _points.Add(evt.Identifier,
-                        new PointData() {Pose = evt.Pose, Selecting = false});
+                        new PointData() { Pose = evt.Pose, Selecting = false });
                     break;
                 case PointerEventType.Select:
                     _points[evt.Identifier].Selecting = true;

@@ -26,7 +26,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OVRSpectatorModeDomeTest : MonoBehaviour {
+public class OVRSpectatorModeDomeTest : MonoBehaviour
+{
 
     bool inited = false;
 
@@ -58,7 +59,7 @@ public class OVRSpectatorModeDomeTest : MonoBehaviour {
     }
 
     // Use this for initialization
-    void Start ()
+    void Start()
     {
 #if UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN || OVR_ANDROID_MRC
         if (!defaultExternalCamera)
@@ -197,7 +198,7 @@ public class OVRSpectatorModeDomeTest : MonoBehaviour {
             }
         }
 
-        // Keep spectator camera on dome surface 
+        // Keep spectator camera on dome surface
         Vector2 axis = OVRInput.Get(OVRInput.Axis2D.SecondaryThumbstick);
         if (Mathf.Abs(axis.x) > 0.2f)
         {
@@ -247,7 +248,8 @@ public class OVRSpectatorModeDomeTest : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update () {
+    void Update()
+    {
 #if UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN || OVR_ANDROID_MRC
         if (!inited)
         {

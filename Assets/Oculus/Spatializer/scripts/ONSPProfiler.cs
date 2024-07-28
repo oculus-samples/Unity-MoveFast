@@ -48,7 +48,7 @@ public class ONSPProfiler : MonoBehaviour
 
     // Import functions
     public const string strONSPS = "AudioPluginOculusSpatializer";
-    
+
     [DllImport(strONSPS)]
     private static extern int ONSP_SetProfilerEnabled(bool enabled);
     [DllImport(strONSPS)]

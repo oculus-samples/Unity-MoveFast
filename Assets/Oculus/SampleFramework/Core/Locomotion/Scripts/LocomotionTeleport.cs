@@ -20,9 +20,9 @@
 
 /************************************************************************************
 
-See SampleFramework license.txt for license terms.  Unless required by applicable law 
-or agreed to in writing, the sample code is provided “AS IS” WITHOUT WARRANTIES OR 
-CONDITIONS OF ANY KIND, either express or implied.  See the license for specific 
+See SampleFramework license.txt for license terms.  Unless required by applicable law
+or agreed to in writing, the sample code is provided “AS IS” WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied.  See the license for specific
 language governing permissions and limitations under the license.
 
 ************************************************************************************/
@@ -40,15 +40,15 @@ using Debug = UnityEngine.Debug;
 
 
 /// <summary>
-/// The LocomotionTeleport class controls and centralizes functionality for the various types 
-/// of teleports. The system is designed to work as a set of components that are each responsible 
-/// for different aspects of the teleport process. This makes it possible for different kinds of 
+/// The LocomotionTeleport class controls and centralizes functionality for the various types
+/// of teleports. The system is designed to work as a set of components that are each responsible
+/// for different aspects of the teleport process. This makes it possible for different kinds of
 /// teleport behaviors to be occur by simply enabling different combinations of components.
 /// </summary>
 public class LocomotionTeleport : MonoBehaviour
 {
     /// <summary>
-    /// The process of teleporting is represented by a simple state machine, and each of the 
+    /// The process of teleporting is represented by a simple state machine, and each of the
     /// possible states are represented by this enum.
     /// </summary>
     public enum States
@@ -89,7 +89,7 @@ public class LocomotionTeleport : MonoBehaviour
 
     /// <summary>
     /// Helper function to enable linear movement during the various teleport states.
-    /// Movement may not be desired at all states, for instance during aiming it may be preferred to prevent movement to allow a 
+    /// Movement may not be desired at all states, for instance during aiming it may be preferred to prevent movement to allow a
     /// thumbstick to be used for choosing the landing orientation.
     /// </summary>
     /// <param name="ready"></param>
@@ -132,7 +132,7 @@ public class LocomotionTeleport : MonoBehaviour
 
     /// <summary>
     /// Helper function to enable rotation movement during the various teleport states.
-    /// Rotation may not be desired at all states, for instance during aiming it may be preferred to prevent rotation (snap turn or linear) 
+    /// Rotation may not be desired at all states, for instance during aiming it may be preferred to prevent rotation (snap turn or linear)
     /// to prevent the camera from being rotated while preparing to teleport.
     /// </summary>
     /// <param name="ready"></param>
@@ -154,9 +154,9 @@ public class LocomotionTeleport : MonoBehaviour
     public States CurrentState { get; private set; }
 
     /// <summary>
-    /// Aiming is handled by one specific aim handler at a time. When the aim handler component is enabled, it 
-    /// will set this reference to the AimHandler so that other parts of the system which need access to the 
-    /// current aim handler can be sure to use the correct component. 
+    /// Aiming is handled by one specific aim handler at a time. When the aim handler component is enabled, it
+    /// will set this reference to the AimHandler so that other parts of the system which need access to the
+    /// current aim handler can be sure to use the correct component.
     /// </summary>
     [NonSerialized]
     public TeleportAimHandler AimHandler;
@@ -168,7 +168,7 @@ public class LocomotionTeleport : MonoBehaviour
     public TeleportDestination TeleportDestinationPrefab;
     [Tooltip("TeleportDestinationPrefab will be instantiated into this layer.")]
     public int TeleportDestinationLayer = 0;
-    
+
     #region Support Events
     /// <summary>
     /// This event is raised when the teleport destination is in the process of being updated. It is used by the active TeleportDestination
@@ -193,7 +193,7 @@ public class LocomotionTeleport : MonoBehaviour
     }
 
     /// <summary>
-    /// The TeleportInputHandler is responsible for converting input events to TeleportIntentions. 
+    /// The TeleportInputHandler is responsible for converting input events to TeleportIntentions.
     /// </summary>
     [NonSerialized]
     public TeleportInputHandler InputHandler;
@@ -204,7 +204,7 @@ public class LocomotionTeleport : MonoBehaviour
     public enum TeleportIntentions
     {
         None,           // No teleport is requested.
-        Aim,            // The user wants to aim for a teleport. 
+        Aim,            // The user wants to aim for a teleport.
         PreTeleport,    // The user has selected a location to teleport, and the input handler will now control how long it stays in PreTeleport.
         Teleport        // The user has chosen to teleport. If the destination is valid, the state will transition to Teleporting, otherwise it will switch to CancelTeleport.
     }
@@ -217,29 +217,29 @@ public class LocomotionTeleport : MonoBehaviour
 
     /// <summary>
     /// The state machine will not exit the PreTeleport state while IsPreTeleportRequested is true.
-    /// The sample doesn't currently use this, however this provides new components the ability to delay exiting 
+    /// The sample doesn't currently use this, however this provides new components the ability to delay exiting
     /// the PreTeleport state until game logic is ready for it.
     /// </summary>
     [NonSerialized]
     public bool IsPreTeleportRequested;
 
     /// <summary>
-    /// The state machine will not exit the Teleporting state while IsTransitioning is true. This is how the BlinkTransition and WarpTransition 
+    /// The state machine will not exit the Teleporting state while IsTransitioning is true. This is how the BlinkTransition and WarpTransition
     /// force the system to remain in the Teleporting state until the transition is complete.
     /// </summary>
     [NonSerialized]
     public bool IsTransitioning;
 
     /// <summary>
-    /// The state machine will not exit the PostTeleport state while IsPostTeleportRequested is true. 
-    /// The sample doesn't currently use this, however this provides new components the ability to delay exiting 
+    /// The state machine will not exit the PostTeleport state while IsPostTeleportRequested is true.
+    /// The sample doesn't currently use this, however this provides new components the ability to delay exiting
     /// the PostTeleport state until game logic is ready for it.
     /// </summary>
     [NonSerialized]
     public bool IsPostTeleportRequested;
 
     /// <summary>
-    /// Created at runtime, this gameobject is used to track where the player will teleport. 
+    /// Created at runtime, this gameobject is used to track where the player will teleport.
     /// The actual position depends on the type of Aim Handler and Target Handler that is active.
     /// Aim Handlers:
     /// * Laser: player capsule swept along aim ray until it hits terrain or valid target.
@@ -268,13 +268,13 @@ public class LocomotionTeleport : MonoBehaviour
 
     /// <summary>
     /// The aiming system uses a common function for testing collision with the world, which can be configured to use different
-    /// shapes for testing. 
+    /// shapes for testing.
     /// </summary>
     public enum AimCollisionTypes
     {
         Point,  // ray casting
         Sphere, // swept sphere test
-        Capsule // swept capsule test, optionally sized to match the character controller dimensions. 
+        Capsule // swept capsule test, optionally sized to match the character controller dimensions.
     }
 
     /// <summary>
@@ -302,9 +302,9 @@ public class LocomotionTeleport : MonoBehaviour
     public float AimCollisionHeight;
 
     /// <summary>
-    /// AimCollisionTest is used by many of the aim handlers to standardize the testing of aiming beams. By choosing between the increasingly restrictive 
-    /// point, sphere and capsule tests, the aiming system can limit targeting to routes which are not physically blocked. For example, a sphere test 
-    /// is good for ensuring the player can't teleport through bars to get out of a jail cell. 
+    /// AimCollisionTest is used by many of the aim handlers to standardize the testing of aiming beams. By choosing between the increasingly restrictive
+    /// point, sphere and capsule tests, the aiming system can limit targeting to routes which are not physically blocked. For example, a sphere test
+    /// is good for ensuring the player can't teleport through bars to get out of a jail cell.
     /// </summary>
     /// <param name="start"></param>
     /// <param name="end"></param>
@@ -339,7 +339,7 @@ public class LocomotionTeleport : MonoBehaviour
             }
 
             case AimCollisionTypes.Point:
-                return Physics.Raycast(start, direction, out hitInfo, distance, aimCollisionLayerMask,QueryTriggerInteraction.Ignore);
+                return Physics.Raycast(start, direction, out hitInfo, distance, aimCollisionLayerMask, QueryTriggerInteraction.Ignore);
 
             case AimCollisionTypes.Sphere:
             {
@@ -371,7 +371,7 @@ public class LocomotionTeleport : MonoBehaviour
     [Conditional("DEBUG_TELEPORT_STATES")]
     protected void LogState(string msg)
     {
-        Debug.Log(Time.frameCount + ": " +  msg);
+        Debug.Log(Time.frameCount + ": " + msg);
     }
 
     /// <summary>
@@ -405,7 +405,7 @@ public class LocomotionTeleport : MonoBehaviour
         {
             CreateNewTeleportDestination();
         }
-        GameObject.Destroy(oldDestination.gameObject);    
+        GameObject.Destroy(oldDestination.gameObject);
     }
 
     /// <summary>
@@ -433,18 +433,18 @@ public class LocomotionTeleport : MonoBehaviour
     /// <summary>
     /// Start the state machine coroutines.
     /// </summary>
-    public virtual void OnEnable ()
+    public virtual void OnEnable()
     {
         CurrentState = States.Ready;
         StartCoroutine(ReadyStateCoroutine());
     }
-    public virtual void OnDisable ()
+    public virtual void OnDisable()
     {
         StopAllCoroutines();
     }
 
     /// <summary>
-    /// This event is raised when entering the Ready state. The initial use for this is for the input handler to start 
+    /// This event is raised when entering the Ready state. The initial use for this is for the input handler to start
     /// processing input in order to eventually set the TeleportIntention to Aim when the user requests it.
     /// </summary>
     public event Action EnterStateReady;
@@ -457,7 +457,7 @@ public class LocomotionTeleport : MonoBehaviour
     {
         LogState("ReadyState: Start");
 
-        // yield once so that all the components will have time to process their OnEnable message before this 
+        // yield once so that all the components will have time to process their OnEnable message before this
         // does work that relies on the events being hooked up.
         yield return null;
 
@@ -487,7 +487,7 @@ public class LocomotionTeleport : MonoBehaviour
     /// <summary>
     /// The AimData contains data provided by the Aim Handler which represents the final set of points
     /// that were used for aiming the teleport. This is provided to the AimVisual for rendering an aim effect.
-    /// Note that the set of points provided here can be different from the points used by the Aim Handler to 
+    /// Note that the set of points provided here can be different from the points used by the Aim Handler to
     /// determine the teleport destination. For instance, the aim handler might use a very long line segment
     /// for an aim laser but would provide a shorter line segment in the AimData representing the line
     /// from the player to the teleport destination.
@@ -547,7 +547,7 @@ public class LocomotionTeleport : MonoBehaviour
 
     /// <summary>
     /// This coroutine will be running while the aim state is active. The teleport destination will become active,
-    /// and depending on the target and current intention of the user it might enter the CancelAim state or 
+    /// and depending on the target and current intention of the user it might enter the CancelAim state or
     /// PreTeleport state when it is done.
     /// </summary>
     /// <returns></returns>
@@ -563,7 +563,7 @@ public class LocomotionTeleport : MonoBehaviour
         _teleportDestination.gameObject.SetActive(true);
 
         // Wait until the user is done aiming. The input system will turn this off when the button that triggered aiming is released.
-        while (CurrentIntention == TeleportIntentions.Aim) 
+        while (CurrentIntention == TeleportIntentions.Aim)
         {
             yield return null;
         }
@@ -625,7 +625,7 @@ public class LocomotionTeleport : MonoBehaviour
     /// <summary>
     /// This coroutine will be active while the system is in the PreTeleport state.
     /// At this point, the user has indicated they want to teleport however there is a possibility that the
-    /// target they have chosen might be or become invalid so the next state will be either Teleporting or 
+    /// target they have chosen might be or become invalid so the next state will be either Teleporting or
     /// CancelTeleporting.
     /// </summary>
     /// <returns></returns>
@@ -663,7 +663,7 @@ public class LocomotionTeleport : MonoBehaviour
     /// <summary>
     /// This event will occur if the user cancels the teleport after the destination has been selected.
     /// Typically not much different than cancelling an aim state, however there may be some effect
-    /// triggered by the target selection which needs to be cleaned up, or perhaps a different visual 
+    /// triggered by the target selection which needs to be cleaned up, or perhaps a different visual
     /// effect needs to be triggered when a teleport is aborted.
     /// </summary>
     public event Action EnterStateCancelTeleport;
@@ -695,11 +695,11 @@ public class LocomotionTeleport : MonoBehaviour
     /// This event will occur when the teleport actually occurs. There should be one Transition Handler
     /// enabled and attached to this event. There may be other handlers attached to this event to trigger
     /// sound effects or gameplay logic to respond to the teleport event.
-    /// 
+    ///
     /// The transition handler is responsible for actually moving the player to the destination, and can achieve
     /// this goal however it wants. Example teleport transition handlers include:
     /// * Instant - Just move the player with no delay or effect.
-    /// * Blink - Fade the camera to black, teleport, then fade back up. 
+    /// * Blink - Fade the camera to black, teleport, then fade back up.
     /// * Warp - Translate the camera over some fixed amount of time to the new destination.
     /// </summary>
     public event Action EnterStateTeleporting;
@@ -740,9 +740,9 @@ public class LocomotionTeleport : MonoBehaviour
     public event Action EnterStatePostTeleport;
 
     /// <summary>
-    /// The PostTeleport coroutine is typically just a single frame state that deactivates the destination 
+    /// The PostTeleport coroutine is typically just a single frame state that deactivates the destination
     /// indicator and raises the EnterStatePostTeleport event which could be used for any number of gameplay
-    /// purposes such as triggering a character animation, sound effect or possibly delaying the exit of the 
+    /// purposes such as triggering a character animation, sound effect or possibly delaying the exit of the
     /// PostTeleport state for some gameplay reason such as a cooldown on teleports.
     /// </summary>
     /// <returns></returns>
@@ -772,18 +772,18 @@ public class LocomotionTeleport : MonoBehaviour
     }
 
     /// <summary>
-    /// This event is raised when the character actually teleports, which is typically triggered by the 
+    /// This event is raised when the character actually teleports, which is typically triggered by the
     /// transition handler.
-    /// 
+    ///
     /// The first parameter is the character controller's transform.
-    /// The second and third are the position and rotation, respectively, which the character controller 
+    /// The second and third are the position and rotation, respectively, which the character controller
     /// will be assigned immediately after the event is raised.
     /// </summary>
     public event Action<Transform, Vector3, Quaternion> Teleported;
 
     /// <summary>
     /// Perform the actual teleport.
-    /// Note that warp transitions do not call this function and instead moves the game object 
+    /// Note that warp transitions do not call this function and instead moves the game object
     /// during the transition time time.
     /// </summary>
     public void DoTeleport()
@@ -821,7 +821,7 @@ public class LocomotionTeleport : MonoBehaviour
     }
 
     /// <summary>
-    /// Return a quaternion for the Y axis of the HMD's orientation. 
+    /// Return a quaternion for the Y axis of the HMD's orientation.
     /// Used by orientation handlers to track the current heading before processing user input to adjust it.
     /// </summary>
     /// <returns></returns>
@@ -864,7 +864,7 @@ public class LocomotionTeleport : MonoBehaviour
     {
         var destTransform = _teleportDestination.OrientationIndicator;
         Vector3 destPosition = destTransform.position;
-        destPosition.y += LocomotionController.CharacterController.height/2.0f;
+        destPosition.y += LocomotionController.CharacterController.height / 2.0f;
 
         var character = LocomotionController.CharacterController;
         var characterTransform = character.transform;

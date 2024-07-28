@@ -20,9 +20,9 @@
 
 /************************************************************************************
 
-See SampleFramework license.txt for license terms.  Unless required by applicable law 
-or agreed to in writing, the sample code is provided “AS IS” WITHOUT WARRANTIES OR 
-CONDITIONS OF ANY KIND, either express or implied.  See the license for specific 
+See SampleFramework license.txt for license terms.  Unless required by applicable law
+or agreed to in writing, the sample code is provided “AS IS” WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied.  See the license for specific
 language governing permissions and limitations under the license.
 
 ************************************************************************************/
@@ -32,7 +32,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 /// <summary>
-/// TeleportAimHandler will provide a series of points in the world that represent the series of line 
+/// TeleportAimHandler will provide a series of points in the world that represent the series of line
 /// segments (as few as one for a laser) which the player uses to determine where they are aiming for a teleport.
 /// This is not the visualization of the aiming, it is merely the set of points representing the line, arc, or whatever
 /// shape makes sense for the teleport aiming mechanism which is then used to perform collision detection with the world

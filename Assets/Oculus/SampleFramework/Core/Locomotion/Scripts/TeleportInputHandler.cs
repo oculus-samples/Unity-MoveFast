@@ -20,9 +20,9 @@
 
 /************************************************************************************
 
-See SampleFramework license.txt for license terms.  Unless required by applicable law 
-or agreed to in writing, the sample code is provided “AS IS” WITHOUT WARRANTIES OR 
-CONDITIONS OF ANY KIND, either express or implied.  See the license for specific 
+See SampleFramework license.txt for license terms.  Unless required by applicable law
+or agreed to in writing, the sample code is provided “AS IS” WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied.  See the license for specific
 language governing permissions and limitations under the license.
 
 ************************************************************************************/
@@ -33,8 +33,8 @@ using System.Collections;
 
 /// <summary>
 /// The TeleportInputHandler provides interfaces used to control aim related to teleports and related behaviors.
-/// There are derived implementations of this for Touch controllers, gamepad and HMD based aiming mechanics. 
-/// Supporting any of these, or other future controllers, is possible by implementing and enabling a different 
+/// There are derived implementations of this for Touch controllers, gamepad and HMD based aiming mechanics.
+/// Supporting any of these, or other future controllers, is possible by implementing and enabling a different
 /// derived type of TeleportInputHandler.
 /// </summary>
 public abstract class TeleportInputHandler : TeleportSupport
@@ -58,7 +58,7 @@ public abstract class TeleportInputHandler : TeleportSupport
 
     protected override void RemoveEventHandlers()
     {
-        if(LocomotionTeleport.InputHandler == this)
+        if (LocomotionTeleport.InputHandler == this)
         {
             LocomotionTeleport.InputHandler = null;
         }
@@ -82,7 +82,7 @@ public abstract class TeleportInputHandler : TeleportSupport
 
     /// <summary>
     /// This coroutine will be active while the teleport system is in the Aim or PreTeleport state.
-    /// It remains active in both the Aim and PreTeleport states because these states are the ones that 
+    /// It remains active in both the Aim and PreTeleport states because these states are the ones that
     /// need to switch to different states based on the user intention as detected by the input handler.
     /// </summary>
     /// <returns></returns>
@@ -100,8 +100,8 @@ public abstract class TeleportInputHandler : TeleportSupport
     }
 
     /// <summary>
-    /// One of the core functions of the TeleportInputHandler is to notify the LocomotionTeleport of the current intentions of the 
-    /// user with respect to aiming, teleporting, and abandoning a pending teleport. 
+    /// One of the core functions of the TeleportInputHandler is to notify the LocomotionTeleport of the current intentions of the
+    /// user with respect to aiming, teleporting, and abandoning a pending teleport.
     /// Derivations of this class will check buttons or whatever inputs they require to return values indicating what the user is
     /// trying to do.
     /// </summary>

@@ -29,7 +29,7 @@ using UnityEngine;
 /// </summary>
 internal static class OVRDeserialize
 {
-    public static T ByteArrayToStructure<T>(byte[] bytes) where T: struct
+    public static T ByteArrayToStructure<T>(byte[] bytes) where T : struct
     {
         T stuff;
         GCHandle handle = GCHandle.Alloc(bytes, GCHandleType.Pinned);

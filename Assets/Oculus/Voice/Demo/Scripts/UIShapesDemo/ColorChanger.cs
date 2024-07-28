@@ -59,12 +59,13 @@ namespace Oculus.Voice.Demo.UIShapesDemo
             {
                 return;
             }
-            if (shapes.Length == 0 || shapes[0] == "color"){
+            if (shapes.Length == 0 || shapes[0] == "color")
+            {
                 UpdateColorAllShapes(colorNames);
                 return;
             }
 
-            for(var entity = 0; entity < colorNames.Length; entity++)
+            for (var entity = 0; entity < colorNames.Length; entity++)
             {
                 if (!ColorUtility.TryParseHtmlString(colorNames[entity], out var color)) return;
 
@@ -87,11 +88,11 @@ namespace Oculus.Voice.Demo.UIShapesDemo
         public void UpdateColorAllShapes(string[] colorNames)
         {
             var unspecifiedShape = 0;
-            for(var entity = 0; entity < colorNames.Length; entity++)
+            for (var entity = 0; entity < colorNames.Length; entity++)
             {
                 if (!ColorUtility.TryParseHtmlString(colorNames[entity], out var color)) return;
 
-                var splitLimit = (transform.childCount/colorNames.Length) * (entity+1);
+                var splitLimit = (transform.childCount / colorNames.Length) * (entity + 1);
                 while (unspecifiedShape < splitLimit)
                 {
                     SetColor(transform.GetChild(unspecifiedShape), color);

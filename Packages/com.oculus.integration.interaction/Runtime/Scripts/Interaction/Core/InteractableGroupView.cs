@@ -123,7 +123,7 @@ namespace Oculus.Interaction
                 InteractableState previousState = _state;
                 _state = value;
                 WhenStateChanged(new InteractableStateChangeArgs(
-                    previousState,_state
+                    previousState, _state
                 ));
             }
         }

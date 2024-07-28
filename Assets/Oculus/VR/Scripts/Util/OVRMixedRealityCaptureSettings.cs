@@ -56,7 +56,7 @@ public class OVRMixedRealityCaptureSettings : ScriptableObject, OVRMixedRealityC
     public bool virtualGreenScreenApplyDepthCulling = false;
     public float virtualGreenScreenDepthTolerance = 0.2f;
     public OVRManager.MrcActivationMode mrcActivationMode;
-    
+
     // OVRMixedRealityCaptureConfiguration Interface implementation
     bool OVRMixedRealityCaptureConfiguration.enableMixedReality { get { return enableMixedReality; } set { enableMixedReality = value; } }
     LayerMask OVRMixedRealityCaptureConfiguration.extraHiddenLayers { get { return extraHiddenLayers; } set { extraHiddenLayers = value; } }

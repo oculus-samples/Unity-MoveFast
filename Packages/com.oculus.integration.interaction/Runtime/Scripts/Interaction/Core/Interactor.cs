@@ -602,8 +602,8 @@ namespace Oculus.Interaction
             }
         }
 
-        protected virtual void HandleEnabled() {}
-        protected virtual void HandleDisabled() {}
+        protected virtual void HandleEnabled() { }
+        protected virtual void HandleDisabled() { }
 
         protected virtual void HandleSelected()
         {

@@ -20,9 +20,9 @@
 
 /************************************************************************************
 
-See SampleFramework license.txt for license terms.  Unless required by applicable law 
-or agreed to in writing, the sample code is provided “AS IS” WITHOUT WARRANTIES OR 
-CONDITIONS OF ANY KIND, either express or implied.  See the license for specific 
+See SampleFramework license.txt for license terms.  Unless required by applicable law
+or agreed to in writing, the sample code is provided “AS IS” WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied.  See the license for specific
 language governing permissions and limitations under the license.
 
 ************************************************************************************/
@@ -31,7 +31,7 @@ using UnityEngine;
 using System.Collections;
 
 /// <summary>
-/// The TeleportSupport is an EventHandlerBehavior used by a number of derived behaviors 
+/// The TeleportSupport is an EventHandlerBehavior used by a number of derived behaviors
 /// which all rely on the a LocomotionTeleport component being present and available.
 /// </summary>
 public abstract class TeleportSupport : MonoBehaviour
@@ -45,7 +45,7 @@ public abstract class TeleportSupport : MonoBehaviour
     private bool _eventsActive;
 
     /// <summary>
-    /// OnEnable is virtual so that derived classes can set up references to objects before 
+    /// OnEnable is virtual so that derived classes can set up references to objects before
     /// AddEventHandlers is called, as is required by TeleportSupport derivations.
     /// </summary>
     protected virtual void OnEnable()

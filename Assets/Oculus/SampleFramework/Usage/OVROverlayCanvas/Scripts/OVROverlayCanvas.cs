@@ -126,7 +126,7 @@ public class OVROverlayCanvas : MonoBehaviour
         _quad.bounds = new Bounds(Vector3.zero, Vector3.one);
         _quad.UploadMeshData(true);
 
-        switch(Opacity)
+        switch (Opacity)
         {
             case DrawMode.Opaque:
                 _defaultMat = new Material(_opaqueShader);
@@ -177,7 +177,7 @@ public class OVROverlayCanvas : MonoBehaviour
         _overlay.currentOverlayType = OVROverlay.OverlayType.Underlay;
         _overlay.transform.localScale = new Vector3(paddedWidth, paddedHeight, 1);
         _overlay.useExpensiveSuperSample = Expensive;
-    }    
+    }
 
     private void OnDestroy()
     {
@@ -276,7 +276,7 @@ public class OVROverlayCanvas : MonoBehaviour
 
                     // trim a half pixel off each size if this is opaque (transparent should fade)
                     float inset = Opacity == DrawMode.Opaque ? 1.001f : 0;
-                
+
                     float innerSizeX = (innerPixelWidth - inset) / _renderTexture.width;
                     float innerSizeY = (innerPixelHeight - inset) / _renderTexture.height;
 
@@ -296,9 +296,9 @@ public class OVROverlayCanvas : MonoBehaviour
                 }
             }
 
-            _camera.Render();            
+            _camera.Render();
         }
-    }    
+    }
 
     public bool overlayEnabled
     {

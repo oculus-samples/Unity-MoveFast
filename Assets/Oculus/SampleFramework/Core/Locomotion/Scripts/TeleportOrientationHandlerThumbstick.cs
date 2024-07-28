@@ -20,9 +20,9 @@
 
 /************************************************************************************
 
-See SampleFramework license.txt for license terms.  Unless required by applicable law 
-or agreed to in writing, the sample code is provided “AS IS” WITHOUT WARRANTIES OR 
-CONDITIONS OF ANY KIND, either express or implied.  See the license for specific 
+See SampleFramework license.txt for license terms.  Unless required by applicable law
+or agreed to in writing, the sample code is provided “AS IS” WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied.  See the license for specific
 language governing permissions and limitations under the license.
 
 ************************************************************************************/
@@ -87,7 +87,7 @@ public class TeleportOrientationHandlerThumbstick : TeleportOrientationHandler
         }
         else
         {
-            if(Thumbstick == OVRInput.Controller.LTouch) direction = OVRInput.Get(OVRInput.RawAxis2D.LThumbstick);
+            if (Thumbstick == OVRInput.Controller.LTouch) direction = OVRInput.Get(OVRInput.RawAxis2D.LThumbstick);
             else direction = OVRInput.Get(OVRInput.RawAxis2D.RThumbstick);
             magnitude = direction.magnitude;
         }

@@ -20,9 +20,9 @@
 
 /************************************************************************************
 
-See SampleFramework license.txt for license terms.  Unless required by applicable law 
-or agreed to in writing, the sample code is provided “AS IS” WITHOUT WARRANTIES OR 
-CONDITIONS OF ANY KIND, either express or implied.  See the license for specific 
+See SampleFramework license.txt for license terms.  Unless required by applicable law
+or agreed to in writing, the sample code is provided “AS IS” WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied.  See the license for specific
 language governing permissions and limitations under the license.
 
 ************************************************************************************/
@@ -84,21 +84,21 @@ public abstract class TeleportOrientationHandler : TeleportSupport
     protected abstract void UpdateTeleportDestination();
 
     /// <summary>
-    /// The OrientationModes are used to specify how the character should be oriented when they land 
+    /// The OrientationModes are used to specify how the character should be oriented when they land
     /// after a teleport.
     /// </summary>
     public enum OrientationModes
     {
         /// <summary>
-        /// When the player teleports, they will match the orientation of the destination indicator without adjusting their HMD's 
-        /// orientation.  
+        /// When the player teleports, they will match the orientation of the destination indicator without adjusting their HMD's
+        /// orientation.
         /// </summary>
         HeadRelative,
 
         /// <summary>
         /// When the player teleports, the player will be oriented so that when they turn the HMD to match the destination indicator,
-        /// they will be facing forward with respect to the Oculus sensor setup. They will not immediately face the direction of the 
-        /// indicator, and will need to rotated the HMD view to match the indicated direction. Once rotated, the player will be facing 
+        /// they will be facing forward with respect to the Oculus sensor setup. They will not immediately face the direction of the
+        /// indicator, and will need to rotated the HMD view to match the indicated direction. Once rotated, the player will be facing
         /// forward to the Oculus sensors.
         /// </summary>
         ForwardFacing

@@ -20,9 +20,9 @@
 
 /************************************************************************************
 
-See SampleFramework license.txt for license terms.  Unless required by applicable law 
-or agreed to in writing, the sample code is provided “AS IS” WITHOUT WARRANTIES OR 
-CONDITIONS OF ANY KIND, either express or implied.  See the license for specific 
+See SampleFramework license.txt for license terms.  Unless required by applicable law
+or agreed to in writing, the sample code is provided “AS IS” WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied.  See the license for specific
 language governing permissions and limitations under the license.
 
 ************************************************************************************/
@@ -40,7 +40,7 @@ public class TeleportTargetHandlerPhysical : TeleportTargetHandler
 {
     /// <summary>
     /// This method will be called while the LocmotionTeleport component is in the aiming state, once for each
-    /// line segment that the targeting beam requires. 
+    /// line segment that the targeting beam requires.
     /// The function should return true whenever an actual target location has been selected.
     /// </summary>
     /// <param name="start"></param>

@@ -55,62 +55,62 @@ public class OvrAvatarAssetMesh : OvrAvatarAsset
 
         long vertexBufferStart = vertexBuffer.ToInt64();
 
-        // We have different underlying vertex types to unpack, so switch on mesh type. 
+        // We have different underlying vertex types to unpack, so switch on mesh type.
         switch (meshType)
         {
             case ovrAvatarAssetType.Mesh:
+            {
+                long vertexSize = (long)Marshal.SizeOf(typeof(ovrAvatarMeshVertex));
+
+                for (long i = 0; i < vertexCount; i++)
                 {
-                    long vertexSize = (long)Marshal.SizeOf(typeof(ovrAvatarMeshVertex));
+                    long offset = vertexSize * i;
 
-                    for (long i = 0; i < vertexCount; i++)
-                    {
-                        long offset = vertexSize * i;
+                    ovrAvatarMeshVertex vertex = (ovrAvatarMeshVertex)Marshal.PtrToStructure(new IntPtr(vertexBufferStart + offset), typeof(ovrAvatarMeshVertex));
+                    vertices[i] = new Vector3(vertex.x, vertex.y, -vertex.z);
+                    normals[i] = new Vector3(vertex.nx, vertex.ny, -vertex.nz);
+                    tangents[i] = new Vector4(vertex.tx, vertex.ty, -vertex.tz, vertex.tw);
+                    uv[i] = new Vector2(vertex.u, vertex.v);
+                    colors[i] = new Color(0, 0, 0, 1);
 
-                        ovrAvatarMeshVertex vertex = (ovrAvatarMeshVertex)Marshal.PtrToStructure(new IntPtr(vertexBufferStart + offset), typeof(ovrAvatarMeshVertex));
-                        vertices[i] = new Vector3(vertex.x, vertex.y, -vertex.z);
-                        normals[i] = new Vector3(vertex.nx, vertex.ny, -vertex.nz);
-                        tangents[i] = new Vector4(vertex.tx, vertex.ty, -vertex.tz, vertex.tw);
-                        uv[i] = new Vector2(vertex.u, vertex.v);
-                        colors[i] = new Color(0, 0, 0, 1);
-
-                        boneWeights[i].boneIndex0 = vertex.blendIndices[0];
-                        boneWeights[i].boneIndex1 = vertex.blendIndices[1];
-                        boneWeights[i].boneIndex2 = vertex.blendIndices[2];
-                        boneWeights[i].boneIndex3 = vertex.blendIndices[3];
-                        boneWeights[i].weight0 = vertex.blendWeights[0];
-                        boneWeights[i].weight1 = vertex.blendWeights[1];
-                        boneWeights[i].weight2 = vertex.blendWeights[2];
-                        boneWeights[i].weight3 = vertex.blendWeights[3];
-                    }
+                    boneWeights[i].boneIndex0 = vertex.blendIndices[0];
+                    boneWeights[i].boneIndex1 = vertex.blendIndices[1];
+                    boneWeights[i].boneIndex2 = vertex.blendIndices[2];
+                    boneWeights[i].boneIndex3 = vertex.blendIndices[3];
+                    boneWeights[i].weight0 = vertex.blendWeights[0];
+                    boneWeights[i].weight1 = vertex.blendWeights[1];
+                    boneWeights[i].weight2 = vertex.blendWeights[2];
+                    boneWeights[i].weight3 = vertex.blendWeights[3];
                 }
-                break;
+            }
+            break;
 
             case ovrAvatarAssetType.CombinedMesh:
+            {
+                long vertexSize = (long)Marshal.SizeOf(typeof(ovrAvatarMeshVertexV2));
+
+                for (long i = 0; i < vertexCount; i++)
                 {
-                    long vertexSize = (long)Marshal.SizeOf(typeof(ovrAvatarMeshVertexV2));
+                    long offset = vertexSize * i;
 
-                    for (long i = 0; i < vertexCount; i++)
-                    {
-                        long offset = vertexSize * i;
+                    ovrAvatarMeshVertexV2 vertex = (ovrAvatarMeshVertexV2)Marshal.PtrToStructure(new IntPtr(vertexBufferStart + offset), typeof(ovrAvatarMeshVertexV2));
+                    vertices[i] = new Vector3(vertex.x, vertex.y, -vertex.z);
+                    normals[i] = new Vector3(vertex.nx, vertex.ny, -vertex.nz);
+                    tangents[i] = new Vector4(vertex.tx, vertex.ty, -vertex.tz, vertex.tw);
+                    uv[i] = new Vector2(vertex.u, vertex.v);
+                    colors[i] = new Color(vertex.r, vertex.g, vertex.b, vertex.a);
 
-                        ovrAvatarMeshVertexV2 vertex = (ovrAvatarMeshVertexV2)Marshal.PtrToStructure(new IntPtr(vertexBufferStart + offset), typeof(ovrAvatarMeshVertexV2));
-                        vertices[i] = new Vector3(vertex.x, vertex.y, -vertex.z);
-                        normals[i] = new Vector3(vertex.nx, vertex.ny, -vertex.nz);
-                        tangents[i] = new Vector4(vertex.tx, vertex.ty, -vertex.tz, vertex.tw);
-                        uv[i] = new Vector2(vertex.u, vertex.v);
-                        colors[i] = new Color(vertex.r, vertex.g, vertex.b, vertex.a);
-
-                        boneWeights[i].boneIndex0 = vertex.blendIndices[0];
-                        boneWeights[i].boneIndex1 = vertex.blendIndices[1];
-                        boneWeights[i].boneIndex2 = vertex.blendIndices[2];
-                        boneWeights[i].boneIndex3 = vertex.blendIndices[3];
-                        boneWeights[i].weight0 = vertex.blendWeights[0];
-                        boneWeights[i].weight1 = vertex.blendWeights[1];
-                        boneWeights[i].weight2 = vertex.blendWeights[2];
-                        boneWeights[i].weight3 = vertex.blendWeights[3];
-                    }
+                    boneWeights[i].boneIndex0 = vertex.blendIndices[0];
+                    boneWeights[i].boneIndex1 = vertex.blendIndices[1];
+                    boneWeights[i].boneIndex2 = vertex.blendIndices[2];
+                    boneWeights[i].boneIndex3 = vertex.blendIndices[3];
+                    boneWeights[i].weight0 = vertex.blendWeights[0];
+                    boneWeights[i].weight1 = vertex.blendWeights[1];
+                    boneWeights[i].weight2 = vertex.blendWeights[2];
+                    boneWeights[i].weight3 = vertex.blendWeights[3];
                 }
-                break;
+            }
+            break;
             default:
                 throw new Exception("Bad Mesh Asset Type");
         }
@@ -167,7 +167,7 @@ public class OvrAvatarAssetMesh : OvrAvatarAsset
             mesh.SetIndices(triangles, MeshTopology.Triangles, (int)index);
         }
     }
-   
+
     private void LoadBlendShapes(IntPtr asset, long vertexCount)
     {
         UInt32 blendShapeCount = CAPI.ovrAvatarAsset_GetMeshBlendShapeCount(asset);

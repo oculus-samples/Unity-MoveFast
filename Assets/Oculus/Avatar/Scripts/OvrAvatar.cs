@@ -619,7 +619,7 @@ public class OvrAvatar : MonoBehaviour
         if (EnableExpressive) Capabilities |= ovrAvatarCapabilities.Expressive;
 
         // Enable body tilt on 6dof devices
-        if(OVRPlugin.positionSupported)
+        if (OVRPlugin.positionSupported)
         {
             Capabilities |= ovrAvatarCapabilities.BodyTilt;
         }
@@ -753,7 +753,7 @@ public class OvrAvatar : MonoBehaviour
 
     void RecordFrame()
     {
-        if(UseSDKPackets)
+        if (UseSDKPackets)
         {
             RecordSDKFrame();
         }
@@ -870,15 +870,15 @@ public class OvrAvatar : MonoBehaviour
                     ovrRenderPart = AddSkinnedMeshRenderPBSComponent(renderPartObject, CAPI.ovrAvatarRenderPart_GetSkinnedMeshRenderPBS(renderPart));
                     break;
                 case ovrAvatarRenderPartType.SkinnedMeshRenderPBS_V2:
-                    {
-                        ovrRenderPart = AddSkinnedMeshRenderPBSV2Component(
-                            renderPart,
-                            renderPartObject,
-                            CAPI.ovrAvatarRenderPart_GetSkinnedMeshRenderPBSV2(renderPart),
-                            isBody && renderPartIndex == 0,
-                            isLeftController || isReftController);
-                    }
-                    break;
+                {
+                    ovrRenderPart = AddSkinnedMeshRenderPBSV2Component(
+                        renderPart,
+                        renderPartObject,
+                        CAPI.ovrAvatarRenderPart_GetSkinnedMeshRenderPBSV2(renderPart),
+                        isBody && renderPartIndex == 0,
+                        isLeftController || isReftController);
+                }
+                break;
                 default:
                     break;
             }
@@ -1100,20 +1100,20 @@ public class OvrAvatar : MonoBehaviour
                 switch (sceneLight.type)
                 {
                     case LightType.Directional:
-                        {
-                            CreateLightDirectional(instanceID, sceneLight.transform.forward, sceneLight.intensity, ref ovrLights.lights[i]);
-                            break;
-                        }
+                    {
+                        CreateLightDirectional(instanceID, sceneLight.transform.forward, sceneLight.intensity, ref ovrLights.lights[i]);
+                        break;
+                    }
                     case LightType.Point:
-                        {
-                            CreateLightPoint(instanceID, sceneLight.transform.position, sceneLight.range, sceneLight.intensity, ref ovrLights.lights[i]);
-                            break;
-                        }
+                    {
+                        CreateLightPoint(instanceID, sceneLight.transform.position, sceneLight.range, sceneLight.intensity, ref ovrLights.lights[i]);
+                        break;
+                    }
                     case LightType.Spot:
-                        {
-                            CreateLightSpot(instanceID, sceneLight.transform.position, sceneLight.transform.forward, sceneLight.spotAngle, sceneLight.range, sceneLight.intensity, ref ovrLights.lights[i]);
-                            break;
-                        }
+                    {
+                        CreateLightSpot(instanceID, sceneLight.transform.position, sceneLight.transform.forward, sceneLight.spotAngle, sceneLight.range, sceneLight.intensity, ref ovrLights.lights[i]);
+                        break;
+                    }
                 }
             }
         }
@@ -1287,17 +1287,17 @@ public class OvrAvatar : MonoBehaviour
 
     public void UpdateVoiceData(short[] pcmData, int numChannels)
     {
-      if (lipsyncContext != null && micInput == null)
-      {
-          lipsyncContext.ProcessAudioSamplesRaw(pcmData, numChannels);
-      }
+        if (lipsyncContext != null && micInput == null)
+        {
+            lipsyncContext.ProcessAudioSamplesRaw(pcmData, numChannels);
+        }
     }
     public void UpdateVoiceData(float[] pcmData, int numChannels)
     {
-      if (lipsyncContext != null && micInput == null)
-      {
-          lipsyncContext.ProcessAudioSamplesRaw(pcmData, numChannels);
-      }
+        if (lipsyncContext != null && micInput == null)
+        {
+            lipsyncContext.ProcessAudioSamplesRaw(pcmData, numChannels);
+        }
     }
 
 

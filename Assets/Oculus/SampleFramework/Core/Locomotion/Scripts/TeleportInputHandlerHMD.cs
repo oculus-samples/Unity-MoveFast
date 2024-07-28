@@ -20,9 +20,9 @@
 
 /************************************************************************************
 
-See SampleFramework license.txt for license terms.  Unless required by applicable law 
-or agreed to in writing, the sample code is provided “AS IS” WITHOUT WARRANTIES OR 
-CONDITIONS OF ANY KIND, either express or implied.  See the license for specific 
+See SampleFramework license.txt for license terms.  Unless required by applicable law
+or agreed to in writing, the sample code is provided “AS IS” WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied.  See the license for specific
 language governing permissions and limitations under the license.
 
 ************************************************************************************/
@@ -44,14 +44,14 @@ public class TeleportInputHandlerHMD : TeleportInputHandler
     public OVRInput.RawButton AimButton;
 
     /// <summary>
-    /// The button used to trigger the teleport after aiming. It can be the same button as the AimButton, however you cannot 
+    /// The button used to trigger the teleport after aiming. It can be the same button as the AimButton, however you cannot
     /// abort a teleport if it is.
     /// </summary>
     [Tooltip("The button used to trigger the teleport after aiming. It can be the same button as the AimButton, however you cannot abort a teleport if it is.")]
     public OVRInput.RawButton TeleportButton;
 
     /// <summary>
-    /// When true, the system will not use the PreTeleport intention which will allow a teleport to occur on a button downpress. 
+    /// When true, the system will not use the PreTeleport intention which will allow a teleport to occur on a button downpress.
     /// When false, the button downpress will trigger the PreTeleport intention and the Teleport intention when the button is released.
     /// </summary>
     [Tooltip("When true, the system will not use the PreTeleport intention which will allow a teleport to occur on a button downpress. When false, the button downpress will trigger the PreTeleport intention and the Teleport intention when the button is released.")]

@@ -131,7 +131,7 @@ public class OVRGLTFAnimatinonNode
             return;
         m_inputNodeState.down = down;
 
-        if(m_translations.Count > 1)
+        if (m_translations.Count > 1)
             m_gameObj.transform.localPosition = (down ? m_translations[1] : m_translations[0]);
         if (m_rotations.Count > 1)
             m_gameObj.transform.localRotation = (down ? m_rotations[1] : m_rotations[0]);
@@ -162,7 +162,7 @@ public class OVRGLTFAnimatinonNode
         m_inputNodeState.vecT.x = joystick.x;
         m_inputNodeState.vecT.y = joystick.y;
 
-        if(m_rotations.Count != (int)ThumbstickDirection.NorthWest + 1)
+        if (m_rotations.Count != (int)ThumbstickDirection.NorthWest + 1)
         {
             Debug.LogError("Wrong joystick animation data.");
             return;
@@ -177,7 +177,7 @@ public class OVRGLTFAnimatinonNode
             if (t != 0)
             {
                 int poseIndex = (i == 0 ? (int)dir.Item1 : (int)dir.Item2) - (int)ThumbstickDirection.North;
-                Quaternion b = m_rotations[poseIndex+1];
+                Quaternion b = m_rotations[poseIndex + 1];
                 a = Quaternion.Slerp(a, b, t);
             }
         }
@@ -297,7 +297,7 @@ public class OVRGLTFAnimatinonNode
 
         int outputId = samplerNode["output"].AsInt;
         OVRInterpolationType interpolationId = ToOVRInterpolationType(samplerNode["interpolation"].Value);
-        if(interpolationId == OVRInterpolationType.None)
+        if (interpolationId == OVRInterpolationType.None)
         {
             Debug.LogError("Unsupported interpolation type: " + samplerNode["interpolation"].Value);
             return;

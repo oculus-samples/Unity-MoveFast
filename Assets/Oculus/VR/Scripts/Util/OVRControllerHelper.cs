@@ -107,7 +107,7 @@ public class OVRControllerHelper : MonoBehaviour
     {
         if (m_controllerModelsInitialized)
             return;
-    
+
         OVRPlugin.SystemHeadset headset = OVRPlugin.GetSystemHeadsetType();
         OVRPlugin.Hand controllerHand = m_controller == OVRInput.Controller.LTouch ? OVRPlugin.Hand.HandLeft : OVRPlugin.Hand.HandRight;
         switch (headset)
@@ -116,17 +116,22 @@ public class OVRControllerHelper : MonoBehaviour
                 activeControllerType = ControllerType.Rift;
                 break;
             case OVRPlugin.SystemHeadset.Oculus_Quest_2:
-                if (OVRPlugin.GetCurrentInteractionProfile(controllerHand) == OVRPlugin.InteractionProfile.TouchPro) 
+                if (OVRPlugin.GetCurrentInteractionProfile(controllerHand) == OVRPlugin.InteractionProfile.TouchPro)
                 {
                     activeControllerType = ControllerType.TouchPro;
-                } else {
+                }
+                else
+                {
                     activeControllerType = ControllerType.Quest2;
                 }
                 break;
             case OVRPlugin.SystemHeadset.Oculus_Link_Quest_2:
-                if (OVRPlugin.GetCurrentInteractionProfile(controllerHand) == OVRPlugin.InteractionProfile.TouchPro) {
+                if (OVRPlugin.GetCurrentInteractionProfile(controllerHand) == OVRPlugin.InteractionProfile.TouchPro)
+                {
                     activeControllerType = ControllerType.TouchPro;
-                } else {
+                }
+                else
+                {
                     activeControllerType = ControllerType.Quest2;
                 }
                 break;
@@ -141,7 +146,7 @@ public class OVRControllerHelper : MonoBehaviour
                 break;
         }
 
-        Debug.LogFormat("OVRControllerHelp: Active controller type: {0} for product {1} (headset {2}, hand {3})", 
+        Debug.LogFormat("OVRControllerHelp: Active controller type: {0} for product {1} (headset {2}, hand {3})",
             activeControllerType, OVRPlugin.productName, headset, controllerHand);
 
         // Hide all controller models until controller get connected
@@ -223,7 +228,7 @@ public class OVRControllerHelper : MonoBehaviour
                     m_modelOculusTouchQuestAndRiftSRightController.GetComponent<Animator>();
                 m_activeController = m_controller == OVRInput.Controller.LTouch ? m_modelOculusTouchQuestAndRiftSLeftController : m_modelOculusTouchQuestAndRiftSRightController;
             }
-            else /*if (activeControllerType == ControllerType.TouchPro)*/ 
+            else /*if (activeControllerType == ControllerType.TouchPro)*/
             {
                 m_modelOculusTouchQuestAndRiftSLeftController.SetActive(false);
                 m_modelOculusTouchQuestAndRiftSRightController.SetActive(false);

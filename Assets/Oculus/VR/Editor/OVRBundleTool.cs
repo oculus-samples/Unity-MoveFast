@@ -191,7 +191,7 @@ public class OVRBundleTool : EditorWindow
         }
         GUILayout.EndVertical();
         GUILayout.EndHorizontal();
-        
+
         GUILayout.Space(10f);
         GUIContent transitionContent = new GUIContent("Modified APK [?]",
             "Build and deploy an APK that can hot-reload scenes. This enables fast iteration on content changes to scenes.");
@@ -336,7 +336,7 @@ public class OVRBundleTool : EditorWindow
 
             GUIContent deployScenesWithApkLabel = new GUIContent("Deploy scenes with APK deploy [?]",
                 "If checked, all scenes will be built & deployed when pressing \"Build and Deploy APK\". This takes longer, but provides more expected behavior.");
-                
+
             EditorGUILayout.LabelField(deployScenesWithApkLabel, GUILayout.Width(otherLabelsWidth));
             bool newToggleValue = EditorGUILayout.Toggle(deployScenesWhenDeployingApk);
 
@@ -460,7 +460,7 @@ public class OVRBundleTool : EditorWindow
         {
             return;
         }
-        
+
         if (index >= 0 && index < buildableScenes.Count)
         {
             buildableScenes[index].buildStatus = status;

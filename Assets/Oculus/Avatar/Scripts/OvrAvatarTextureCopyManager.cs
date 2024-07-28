@@ -45,15 +45,15 @@ public class OvrAvatarTextureCopyManager : MonoBehaviour
         public int DstElement;
 
         public CopyTextureParams(
-            Texture src, 
-            Texture dst, 
-            int mip, 
-            int srcSize, 
+            Texture src,
+            Texture dst,
+            int mip,
+            int srcSize,
             int dstElement)
         {
             Src = src;
             Dst = dst;
-            Mip = mip;  
+            Mip = mip;
             SrcSize = srcSize;
             DstElement = dstElement;
         }
@@ -79,12 +79,12 @@ public class OvrAvatarTextureCopyManager : MonoBehaviour
         }
     }
     private Dictionary<int, TextureSet> textureSets;
-    
+
     private const int TEXTURES_TO_COPY_QUEUE_CAPACITY = 256;
     private const int COPIES_PER_FRAME = 8;
 
     // Fallback texture paths are indexed with ovrAvatarAssetLevelOfDetail
-    // We currently only use 1, 3 (mobile default), 5 (PC default) 
+    // We currently only use 1, 3 (mobile default), 5 (PC default)
     private readonly string[] FALLBACK_TEXTURE_PATHS_DIFFUSE_ROUGHNESS = new string[]
     {
         "null",

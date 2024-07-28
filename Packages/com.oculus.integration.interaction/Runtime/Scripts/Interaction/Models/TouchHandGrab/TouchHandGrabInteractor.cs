@@ -200,7 +200,7 @@ namespace Oculus.Interaction
 
         protected override bool ComputeShouldUnselect()
         {
-                return !HandStatusSelecting();
+            return !HandStatusSelecting();
         }
 
         protected override void DoHoverUpdate()

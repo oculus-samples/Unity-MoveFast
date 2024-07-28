@@ -32,7 +32,7 @@ public class TimelineUI : MonoBehaviour, IUIListElementHandler
     Slider _slider;
     [SerializeField]
     private LayoutElement _layoutElement;
-    
+
     private TimeRange _timeRange = default;
 
     public PlayableDirector ActiveTrack;

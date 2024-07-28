@@ -24,7 +24,7 @@ namespace Oculus.Interaction.MoveFast
 {
     /// <summary>
     /// Breaks the combo score when the player misses a target
-    /// When this object has been in the TrackZone and leaves and 
+    /// When this object has been in the TrackZone and leaves and
     /// the _activeGo is still active it's assumed that the target was missed
     /// </summary>
     public class ComboBreaker : MonoBehaviour, IActiveState

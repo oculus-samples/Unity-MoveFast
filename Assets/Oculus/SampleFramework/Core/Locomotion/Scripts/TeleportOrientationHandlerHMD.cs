@@ -20,9 +20,9 @@
 
 /************************************************************************************
 
-See SampleFramework license.txt for license terms.  Unless required by applicable law 
-or agreed to in writing, the sample code is provided “AS IS” WITHOUT WARRANTIES OR 
-CONDITIONS OF ANY KIND, either express or implied.  See the license for specific 
+See SampleFramework license.txt for license terms.  Unless required by applicable law
+or agreed to in writing, the sample code is provided “AS IS” WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied.  See the license for specific
 language governing permissions and limitations under the license.
 
 ************************************************************************************/
@@ -62,7 +62,7 @@ public class TeleportOrientationHandlerHMD : TeleportOrientationHandler
 
     protected override void InitializeTeleportDestination()
     {
-      _initialRotation = Quaternion.identity;
+        _initialRotation = Quaternion.identity;
     }
 
     protected override void UpdateTeleportDestination()
@@ -71,7 +71,7 @@ public class TeleportOrientationHandlerHMD : TeleportOrientationHandler
         if (AimData.Destination.HasValue && (UpdateOrientationDuringAim || LocomotionTeleport.CurrentState == LocomotionTeleport.States.PreTeleport))
         {
             var t = LocomotionTeleport.LocomotionController.CameraRig.centerEyeAnchor;
-            var destination = AimData.Destination.GetValueOrDefault(); 
+            var destination = AimData.Destination.GetValueOrDefault();
 
             // create a plane that contains the destination, with the normal pointing to the HMD.
             var plane = new Plane(Vector3.up, destination);

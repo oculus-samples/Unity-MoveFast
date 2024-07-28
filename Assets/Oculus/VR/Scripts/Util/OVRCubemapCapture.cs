@@ -174,7 +174,7 @@ public class OVRCubemapCapture : MonoBehaviour
         DestroyImmediate(swapTex);
         DestroyImmediate(faceTexture);
 
-        }
+    }
 
 
     /// <summary>

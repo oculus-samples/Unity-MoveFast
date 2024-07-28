@@ -44,9 +44,9 @@ namespace OculusSampleFramework
     /// Press any button: it will cycle  [world geometry Quad]->[overlay layer Quad]->[world geometry cylinder]->[overlay layer cylinder]
     /// On PC, only Quad layer is supported
     /// Press any button: it will cycle  [world geometry Quad]->[overlay layer Quad]
-    /// 
+    ///
     /// You should be able to observe sharper and less aliased image when switch from world geometry to overlay layer.
-    /// 
+    ///
     /// </summary>
     public class OVROverlaySample : MonoBehaviour
     {
@@ -65,7 +65,7 @@ namespace OculusSampleFramework
         /// </summary>
         Toggle applicationRadioButton;
         Toggle noneRadioButton;
-        
+
         [Header("App vs Compositor Comparison Settings")]
         /// <summary>
         /// The main camera used to calculate reprojected OVROverlay quad
@@ -76,7 +76,7 @@ namespace OculusSampleFramework
         /// The camera used to render UI panels
         /// </summary>
         public GameObject uiCamera;
-        
+
         /// <summary>
         /// The parents of grouped UI panels
         /// </summary>
@@ -128,7 +128,7 @@ namespace OculusSampleFramework
             DebugUIBuilder.instance.AddRadio("OVROverlay", "group", delegate (Toggle t) { RadioPressed(ovrOverlayID, "group", t); }).GetComponentInChildren<Toggle>();
             applicationRadioButton = DebugUIBuilder.instance.AddRadio("Application", "group", delegate (Toggle t) { RadioPressed(applicationID, "group", t); }).GetComponentInChildren<Toggle>();
             noneRadioButton = DebugUIBuilder.instance.AddRadio("None", "group", delegate (Toggle t) { RadioPressed(noneID, "group", t); }).GetComponentInChildren<Toggle>();
-        
+
             DebugUIBuilder.instance.Show();
 
             // Start with Overlay Quad
@@ -140,7 +140,7 @@ namespace OculusSampleFramework
 
         void Update()
         {
-            // Switch ui display types 
+            // Switch ui display types
             if (OVRInput.GetDown(OVRInput.Button.Two) || OVRInput.GetDown(OVRInput.Button.Start))
             {
                 if (inMenu) DebugUIBuilder.instance.Hide();
@@ -157,7 +157,7 @@ namespace OculusSampleFramework
         #endregion
 
         #region Private Functions
-        
+
         /// <summary>
         /// Usage: Activate the world geometry and deactivate OVROverlay display
         /// </summary>
@@ -260,7 +260,7 @@ namespace OculusSampleFramework
             float singleEyeScreenPhysicalResX = hmdPanelResWidth * 0.5f;
             float singleEyeScreenPhysicalResY = hmdPanelResHeight;
 
-            // Calculate RT Height     
+            // Calculate RT Height
             // screenSizeYInWorld : how much world unity the full screen can cover at overlayQuad's location vertically
             // pixelDensityY: pixels / world unit ( meter )
 
@@ -303,7 +303,7 @@ namespace OculusSampleFramework
 #if UNITY_5_5_OR_NEWER
             overlayRT.autoGenerateMips = true;
 #else
-        overlayRT.generateMips = true;
+            overlayRT.generateMips = true;
 #endif
             uiCamera.GetComponent<Camera>().targetTexture = overlayRT;
 

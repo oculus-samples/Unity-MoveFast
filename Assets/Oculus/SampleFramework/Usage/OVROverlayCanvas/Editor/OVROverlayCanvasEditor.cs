@@ -22,7 +22,8 @@ using UnityEngine;
 using UnityEditor;
 
 [CustomEditor(typeof(OVROverlayCanvas))]
-public class OVROverlayCanvasEditor : Editor {
+public class OVROverlayCanvasEditor : Editor
+{
 
     GUIStyle mWarningBoxStyle;
 
@@ -69,7 +70,7 @@ public class OVROverlayCanvasEditor : Editor {
         {
             var graphics = canvas.GetComponentsInChildren<UnityEngine.UI.Graphic>();
             bool usingDefaultMaterial = false;
-            foreach(var graphic in graphics)
+            foreach (var graphic in graphics)
             {
                 if (graphic.material == null || graphic.material == graphic.defaultMaterial)
                 {
@@ -89,7 +90,7 @@ public class OVROverlayCanvasEditor : Editor {
                     {
                         var mat = AssetDatabase.LoadAssetAtPath<Material>(AssetDatabase.GUIDToAssetPath(matList[0]));
 
-                        foreach(var graphic in graphics)
+                        foreach (var graphic in graphics)
                         {
                             if (graphic.material == null || graphic.material == graphic.defaultMaterial)
                             {
@@ -122,7 +123,7 @@ public class OVROverlayCanvasEditor : Editor {
         {
             if ((Camera.main.cullingMask & (1 << canvas.gameObject.layer)) != 0)
             {
-                DisplayMessage(eMessageType.Warning, 
+                DisplayMessage(eMessageType.Warning,
                     $"Main Camera '{Camera.main.name}' does not cull this GameObject's Layer '{LayerMask.LayerToName(canvas.gameObject.layer)}'. "
                     + "This Canvas might be rendered by both the Main Camera and the OVROverlay system.");
             }
@@ -135,14 +136,14 @@ public class OVROverlayCanvasEditor : Editor {
         else
         {
             DisplayMessage(eMessageType.Warning, "No Main Camera found. Make sure your camera does not draw this GameObject's Layer ("
-                +LayerMask.LayerToName(canvas.gameObject.layer) + "), or this canvas might be rendered twice.");
+                + LayerMask.LayerToName(canvas.gameObject.layer) + "), or this canvas might be rendered twice.");
         }
 
         if (Application.isPlaying)
         {
             EditorGUILayout.Space();
             EditorGUILayout.LabelField("Editor Debug", EditorStyles.boldLabel);
-            canvas.overlayEnabled = EditorGUILayout.Toggle("Overlay Enabled", canvas.overlayEnabled);            
+            canvas.overlayEnabled = EditorGUILayout.Toggle("Overlay Enabled", canvas.overlayEnabled);
         }
     }
 

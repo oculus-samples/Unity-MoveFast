@@ -40,7 +40,7 @@ public class SampleUI : MonoBehaviour
         DebugUIBuilder.instance.AddButton("Set Custom Key", ToggleCrashlyticsCollection);
         DebugUIBuilder.instance.AddButton("Set User ID", SetUserID);
         DebugUIBuilder.instance.AddButton("Crash", Crash);
-        
+
         DebugUIBuilder.instance.AddLabel("(Text input used by most methods)", DebugUIBuilder.DEBUG_PANE_RIGHT);
         inputText = DebugUIBuilder.instance.AddTextField("Input Text", DebugUIBuilder.DEBUG_PANE_RIGHT);
         DebugUIBuilder.instance.AddLabel("(The value of Set Custom Key)", DebugUIBuilder.DEBUG_PANE_RIGHT);
@@ -84,7 +84,7 @@ public class SampleUI : MonoBehaviour
         if(buttonText)
         {
             buttonText.text = string.Format("Toggle Crashlytics Collection ({0})", Firebase.Crashlytics.Crashlytics.IsCrashlyticsCollectionEnabled);
-        }        
+        }
     }
 
     void SetCustomKey()

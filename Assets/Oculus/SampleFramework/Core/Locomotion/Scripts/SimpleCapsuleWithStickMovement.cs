@@ -45,11 +45,11 @@ public class SimpleCapsuleWithStickMovement : MonoBehaviour
         if (CameraRig == null) CameraRig = GetComponentInChildren<OVRCameraRig>();
     }
 
-    void Start ()
+    void Start()
     {
-        
+
     }
-    
+
     private void FixedUpdate()
     {
         if (CameraUpdated != null) CameraUpdated();

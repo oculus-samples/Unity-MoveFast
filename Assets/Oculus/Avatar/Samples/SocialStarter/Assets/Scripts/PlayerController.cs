@@ -83,12 +83,12 @@ public class PlayerController : SocialPlatformManager
         }
         else
         {
-            // PC Touch 
+            // PC Touch
 
             // Bring up friend invite list
             if (OVRInput.GetDown(OVRInput.Button.Three))
             {
-                Rooms.LaunchInvitableUserFlow (roomManager.roomID);
+                Rooms.LaunchInvitableUserFlow(roomManager.roomID);
             }
 
             // Toggle Camera

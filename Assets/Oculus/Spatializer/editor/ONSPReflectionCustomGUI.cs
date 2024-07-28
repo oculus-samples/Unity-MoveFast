@@ -38,7 +38,7 @@ public class OculusSpatializerReflectionCustomGUI : IAudioEffectPluginGUI
     {
         get { return "Oculus"; }
     }
-    
+
     public override bool OnGUI(IAudioEffectPlugin plugin)
     {
         float fval = 0.0f;
@@ -54,13 +54,13 @@ public class OculusSpatializerReflectionCustomGUI : IAudioEffectPluginGUI
         }
 
         Separator();
-        Label ("GLOBAL SCALE (0.00001 - 10000.0)");
+        Label("GLOBAL SCALE (0.00001 - 10000.0)");
         plugin.GetFloatParameter("GScale", out fval);
-        plugin.SetFloatParameter("GScale", EditorGUILayout.FloatField(" ", Mathf.Clamp (fval, 0.00001f, 10000.0f)));
+        plugin.SetFloatParameter("GScale", EditorGUILayout.FloatField(" ", Mathf.Clamp(fval, 0.00001f, 10000.0f)));
 
         Separator();
 
-        Label ("REFLECTION ENGINE");
+        Label("REFLECTION ENGINE");
         Label("");
         // Treat these floats as bools in the inspector
         plugin.GetFloatParameter("E.Rflt On", out fval);
@@ -119,7 +119,7 @@ public class OculusSpatializerReflectionCustomGUI : IAudioEffectPluginGUI
         Label("");
         plugin.GetFloatParameter("Prop Quality", out fval);
         plugin.SetFloatParameter("Prop Quality", EditorGUILayout.Slider(" ", fval, 0.0f, 200.0f));
-        
+
         Separator();
 
         // We will override the controls with our own, so return false
@@ -133,11 +133,11 @@ public class OculusSpatializerReflectionCustomGUI : IAudioEffectPluginGUI
         GUILayout.Box("", "HorizontalSlider", GUILayout.Height(16));
         GUI.color = Color.white;
     }
-    
+
     // Label
     void Label(string label)
     {
-        EditorGUILayout.LabelField (label);
+        EditorGUILayout.LabelField(label);
     }
 
 

@@ -26,9 +26,9 @@ using UnityEngine.Profiling;
 namespace Oculus.Interaction.MoveFast
 {
     /// <summary>
-    /// Handles IActiveState Interface boilerplate, allows inverting directly on the 
+    /// Handles IActiveState Interface boilerplate, allows inverting directly on the
     /// reference and has a nice property drawer.
-    /// 
+    ///
     /// Example Usage:
     ///   [SerializeField]
     ///   private ReferenceActiveState _activeState;

@@ -116,7 +116,7 @@ namespace Oculus.Interaction
                 if (_state == value) return;
                 InteractableState previousState = _state;
                 _state = value;
-                WhenStateChanged(new InteractableStateChangeArgs(previousState,_state));
+                WhenStateChanged(new InteractableStateChangeArgs(previousState, _state));
             }
         }
 

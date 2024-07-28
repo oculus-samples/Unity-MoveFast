@@ -281,7 +281,7 @@ namespace Oculus.Interaction
                     return false;
                 }
 
-                foreach(IInteractor interactor in Interactors)
+                foreach (IInteractor interactor in Interactors)
                 {
                     if (interactor.ShouldHover)
                     {
@@ -357,7 +357,7 @@ namespace Oculus.Interaction
         {
             get
             {
-                if(_selectInteractor != null)
+                if (_selectInteractor != null)
                 {
                     return _selectInteractor.HasInteractable;
                 }
@@ -488,7 +488,7 @@ namespace Oculus.Interaction
                     EnableInteractors();
                 }
 
-                if(State == InteractorState.Normal)
+                if (State == InteractorState.Normal)
                 {
                     if (ShouldHover)
                     {
@@ -513,7 +513,7 @@ namespace Oculus.Interaction
                     break;
                 }
 
-                if(State == InteractorState.Select)
+                if (State == InteractorState.Select)
                 {
                     if (ShouldUnselect)
                     {

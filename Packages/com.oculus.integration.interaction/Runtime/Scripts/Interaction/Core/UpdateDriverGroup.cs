@@ -41,7 +41,8 @@ namespace Oculus.Interaction
 
         #region Properties
 
-        public int Iterations {
+        public int Iterations
+        {
             get
             {
                 return _iterations;

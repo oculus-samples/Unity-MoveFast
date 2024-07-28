@@ -20,9 +20,9 @@
 
 /************************************************************************************
 
-See SampleFramework license.txt for license terms.  Unless required by applicable law 
-or agreed to in writing, the sample code is provided “AS IS” WITHOUT WARRANTIES OR 
-CONDITIONS OF ANY KIND, either express or implied.  See the license for specific 
+See SampleFramework license.txt for license terms.  Unless required by applicable law
+or agreed to in writing, the sample code is provided “AS IS” WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied.  See the license for specific
 language governing permissions and limitations under the license.
 
 ************************************************************************************/
@@ -45,7 +45,7 @@ public class LocomotionSampleSupport : MonoBehaviour
     {
         get
         {
-            return lc.GetComponent<LocomotionTeleport>(); 
+            return lc.GetComponent<LocomotionTeleport>();
         }
     }
 
@@ -75,7 +75,7 @@ public class LocomotionSampleSupport : MonoBehaviour
 
     public void Update()
     {
-        if(OVRInput.GetDown(OVRInput.Button.Two) || OVRInput.GetDown(OVRInput.Button.Start))
+        if (OVRInput.GetDown(OVRInput.Button.Two) || OVRInput.GetDown(OVRInput.Button.Start))
         {
             if (inMenu) DebugUIBuilder.instance.Hide();
             else DebugUIBuilder.instance.Show();
@@ -119,7 +119,7 @@ public class LocomotionSampleSupport : MonoBehaviour
     }
 
     /// <summary>
-    /// This generic method is used for activating a specific set of components in the LocomotionController. This is just one way 
+    /// This generic method is used for activating a specific set of components in the LocomotionController. This is just one way
     /// to achieve the goal of enabling one component of each category (input, aim, target, orientation and transition) that
     /// the teleport system requires.
     /// </summary>
@@ -268,7 +268,7 @@ public class LocomotionSampleSupport : MonoBehaviour
         var input = TeleportController.GetComponent<TeleportInputHandlerTouch>();
         input.InputMode = TeleportInputHandlerTouch.InputModes.ThumbstickTeleport;
         input.AimingController = OVRInput.Controller.LTouch;
-        
+
         ActivateHandlers<TeleportInputHandlerTouch, TeleportAimHandlerParabolic, TeleportTargetHandlerPhysical, TeleportOrientationHandlerThumbstick, TeleportTransitionBlink>();
         var orient = TeleportController.GetComponent<TeleportOrientationHandlerThumbstick>();
         orient.Thumbstick = OVRInput.Controller.LTouch;
@@ -286,7 +286,7 @@ public class LocomotionSampleSupport : MonoBehaviour
         //lc.PlayerController.FixedSpeedSteps = 1;
     }
 
-    // 
+    //
     void SetupLeftStrafeRightTeleport()
     {
         SetupTeleportDefaults();

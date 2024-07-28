@@ -33,11 +33,11 @@ public class OVRMeshJobs
         public NativeArray<Vector3> Normals;
         public NativeArray<Vector2> UV;
         public NativeArray<BoneWeight> BoneWeights;
-        
+
         public NativeArray<OVRPlugin.Vector3f> MeshVerticesPosition;
         public NativeArray<OVRPlugin.Vector3f> MeshNormals;
         public NativeArray<OVRPlugin.Vector2f> MeshUV;
-        
+
         public NativeArray<OVRPlugin.Vector4f> MeshBoneWeights;
         public NativeArray<OVRPlugin.Vector4s> MeshBoneIndices;
 
@@ -45,13 +45,13 @@ public class OVRMeshJobs
         {
             Vertices[index] = MeshVerticesPosition[index].FromFlippedXVector3f();
             Normals[index] = MeshNormals[index].FromFlippedXVector3f();
-            
+
             UV[index] = new Vector2
             {
                 x = MeshUV[index].x,
                 y = -MeshUV[index].y
             };
-            
+
             var currentBlendWeight = MeshBoneWeights[index];
             var currentBlendIndices = MeshBoneIndices[index];
 
@@ -59,30 +59,30 @@ public class OVRMeshJobs
             {
                 boneIndex0 = currentBlendIndices.x,
                 weight0 = currentBlendWeight.x,
-                
+
                 boneIndex1 = currentBlendIndices.y,
                 weight1 = currentBlendWeight.y,
-                
+
                 boneIndex2 = currentBlendIndices.z,
                 weight2 = currentBlendWeight.z,
-                
+
                 boneIndex3 = currentBlendIndices.w,
                 weight3 = currentBlendWeight.w,
             };
         }
     }
-    
+
     public struct TransformTrianglesJob : IJobParallelFor
     {
         public NativeArray<uint> Triangles;
-        
+
         [ReadOnly]
         public NativeArray<short> MeshIndices;
         public int NumIndices;
 
         public void Execute(int index)
         {
-            Triangles[index] = (uint) MeshIndices[NumIndices - index - 1];
+            Triangles[index] = (uint)MeshIndices[NumIndices - index - 1];
         }
     }
 

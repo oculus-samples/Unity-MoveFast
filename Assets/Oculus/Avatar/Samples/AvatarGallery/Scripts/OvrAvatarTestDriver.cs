@@ -24,7 +24,8 @@ using System;
 using System.Collections.Generic;
 using Oculus.Avatar;
 
-public class OvrAvatarTestDriver : OvrAvatarDriver {
+public class OvrAvatarTestDriver : OvrAvatarDriver
+{
 
     private Vector3 headPos = new Vector3(0f, 1.6f, 0f);
     private Quaternion headRot = Quaternion.identity;

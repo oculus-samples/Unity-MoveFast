@@ -25,7 +25,7 @@ using UnityEngine.Assertions;
 namespace Oculus.Interaction.MoveFast
 {
     /// <summary>
-    /// Limits a StringProperty to a set of options and provides 
+    /// Limits a StringProperty to a set of options and provides
     /// Previous/Next functionality to switch between them
     /// </summary>
     public class StringPropertyOptions : MonoBehaviour
@@ -72,7 +72,7 @@ namespace Oculus.Interaction.MoveFast
 
         private int ClampIndex(int index)
         {
-            return _nextAndPreviousLoops ? (int)Mathf.Repeat(index, _options.Count) : Mathf.Clamp(index, 0, _options.Count-1);
+            return _nextAndPreviousLoops ? (int)Mathf.Repeat(index, _options.Count) : Mathf.Clamp(index, 0, _options.Count - 1);
         }
 
         private void SetCurrent(int index)

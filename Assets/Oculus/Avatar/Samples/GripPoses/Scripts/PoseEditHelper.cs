@@ -22,7 +22,8 @@ using UnityEngine;
 using System.Collections;
 using System;
 
-public class PoseEditHelper : MonoBehaviour {
+public class PoseEditHelper : MonoBehaviour
+{
 
     public Transform poseRoot;
 

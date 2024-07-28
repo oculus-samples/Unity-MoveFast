@@ -29,7 +29,7 @@ namespace Oculus.Interaction.DistanceReticles
 {
     public class ReticleGhostDrawer : InteractorReticle<ReticleDataGhost>
     {
-        [SerializeField, Interface(typeof(IHandGrabber),typeof(IHandGrabState), typeof(IInteractorView))]
+        [SerializeField, Interface(typeof(IHandGrabber), typeof(IHandGrabState), typeof(IInteractorView))]
         private MonoBehaviour _handGrabber;
         private IHandGrabber HandGrabber { get; set; }
         private IHandGrabState HandGrabSource { get; set; }
