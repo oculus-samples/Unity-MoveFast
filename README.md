@@ -11,9 +11,7 @@ You can find Move Fast on AppLab:
 [https://www.oculus.com/experiences/quest/5030224183773255/](https://www.meta.com/en-gb/experiences/6087525674710349/)
 
 ## Licenses
-The *Oculus Integration* package is released under the *[Oculus SDK License Agreement](https://developer.oculus.com/licenses/oculussdk)*.
-The MIT licence applies to the files and assets in the Assets/Project folder.
-Otherwise, if an individual file does not indicate which license it is subject to, then the Oculus License applies.
+The majority of MoveFast is licensed under [MIT LICENSE](./LICENSE.txt), however files from [Text Mesh Pro](http://www.unity3d.com/legal/licenses/Unity_Companion_License) are licensed under their respective licensing terms.
 
 ## Getting started
 
