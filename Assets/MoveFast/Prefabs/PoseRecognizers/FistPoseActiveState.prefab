@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6021596407736967492}
   - component: {fileID: 32760032207940752}
   - component: {fileID: 3919617524753752244}
+  - component: {fileID: 2553258309035285215}
   m_Layer: 0
   m_Name: FistPoseActiveState
   m_TagString: Untagged
@@ -55,6 +56,8 @@ MonoBehaviour:
       UpVectorType: 2
       FeatureThresholds: {fileID: 11400000, guid: 039cf5a7424e1e046b79287e9375cf09, type: 2}
     _handShape: {fileID: 11400000, guid: 10005c21bbecad9489b7bab9aa3ead4c, type: 2}
+  _transform: {fileID: 0}
+  _shape: {fileID: 2553258309035285215}
   _canHitTarget:
     _activeState: {fileID: 0}
     _invert: 0
@@ -75,3 +78,19 @@ MonoBehaviour:
   - {fileID: 32760032207940752}
   - {fileID: 0}
   _logicOperator: 0
+--- !u!114 &2553258309035285215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7107166818508297297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08f7cfb1f9629da4494ac0840f3a3cfd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _hand: {fileID: 0}
+  _fingerFeatureStateProvider: {fileID: 0}
+  _shapes:
+  - {fileID: 11400000, guid: 10005c21bbecad9489b7bab9aa3ead4c, type: 2}

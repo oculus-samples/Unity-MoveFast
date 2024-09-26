@@ -10,6 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 5338826412467352282}
   - component: {fileID: 1869613153704050446}
+  - component: {fileID: 7452379774336999006}
+  - component: {fileID: 5857235973863231075}
+  - component: {fileID: 7898749651393817944}
   m_Layer: 0
   m_Name: BlockPoseActiveState
   m_TagString: Untagged
@@ -57,7 +60,62 @@ MonoBehaviour:
       UpVectorType: 2
       FeatureThresholds: {fileID: 11400000, guid: acfaad6a08b64944facc7c2db2b5c52e, type: 2}
     _handShape: {fileID: 11400000, guid: 10005c21bbecad9489b7bab9aa3ead4c, type: 2}
+  _transform: {fileID: 5857235973863231075}
+  _shape: {fileID: 7898749651393817944}
   _canHitTarget:
     _activeState: {fileID: 0}
     _invert: 1
     _useNull: 0
+--- !u!114 &7452379774336999006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8874319711846369231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b14164f8f23faae4293baeb84485b3d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _hand: {fileID: 0}
+--- !u!114 &5857235973863231075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8874319711846369231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6f9440d09721c849864899e8986e219, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _hand: {fileID: 7452379774336999006}
+  _transformFeatureStateProvider: {fileID: 0}
+  _transformFeatureConfigs:
+    _values:
+    - _mode: 0
+      _feature: 4
+      _state: 12
+  _transformConfig:
+    PositionOffset: {x: 0, y: 0, z: 0}
+    RotationOffset: {x: 0, y: 0, z: 0}
+    UpVectorType: 2
+    FeatureThresholds: {fileID: 11400000, guid: 039cf5a7424e1e046b79287e9375cf09, type: 2}
+--- !u!114 &7898749651393817944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8874319711846369231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08f7cfb1f9629da4494ac0840f3a3cfd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _hand: {fileID: 7452379774336999006}
+  _fingerFeatureStateProvider: {fileID: 0}
+  _shapes:
+  - {fileID: 11400000, guid: 10005c21bbecad9489b7bab9aa3ead4c, type: 2}

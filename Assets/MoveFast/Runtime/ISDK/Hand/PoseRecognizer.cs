@@ -1,22 +1,4 @@
-/*
- * Copyright (c) Meta Platforms, Inc. and affiliates.
- * All rights reserved.
- *
- * Licensed under the Oculus SDK License Agreement (the "License");
- * you may not use the Oculus SDK except in compliance with the License,
- * which is provided at the time of installation or download, or which
- * otherwise accompanies this software in either electronic or hard copy form.
- *
- * You may obtain a copy of the License at
- *
- * https://developer.oculus.com/licenses/oculussdk/
- *
- * Unless required by applicable law or agreed to in writing, the Oculus SDK
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
+// Copyright (c) Meta Platforms, Inc. and affiliates.
 
 using Oculus.Interaction.Input;
 using Oculus.Interaction.PoseDetection;
@@ -70,6 +52,8 @@ namespace Oculus.Interaction.MoveFast
 
     public static class GestureRecognizerExtensions
     {
+        private static bool registered;
+
         public static bool IsMatch(this IFingerFeatureStateProvider handState, ShapeRecognizer handShape)
         {
             return handState.IsMatch(HandFinger.Index, handShape.IndexFeatureConfigs) &&
@@ -93,9 +77,10 @@ namespace Oculus.Interaction.MoveFast
 
         public static bool IsMatch(this TransformFeatureStateProvider orientationRecognizer, TransformConfig transformConfig, TransformFeatureConfigList transformFeatureConfigs)
         {
-            if (!orientationRecognizer.IsRegistered(transformConfig))
+            if (!registered)
             {
-                orientationRecognizer.RegisterNewConfig(transformConfig);
+                registered = true;
+                orientationRecognizer.RegisterConfig(transformConfig);
             }
 
             var configs = transformFeatureConfigs.Values;

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7842573338359547234}
   - component: {fileID: 2150016497310405033}
   - component: {fileID: -7514421034288316028}
-  - component: {fileID: -8031093043056669483}
+  - component: {fileID: 1235014444145238470}
   m_Layer: 0
   m_Name: FailAudio
   m_TagString: Untagged
@@ -29,9 +29,9 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: 2.842171e-14, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -146,6 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 925ef87c5bafc37469a2f7ec825dee4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _audioSource: {fileID: 0}
   _audioClips:
   - {fileID: 8300000, guid: e49adc184a4594d42a9873bc90413409, type: 3}
   - {fileID: 8300000, guid: 2ac6275751faa9443a95387bf9e9a039, type: 3}
@@ -164,9 +165,7 @@ MonoBehaviour:
   _loop: 0
   _chanceToPlay: 100
   _playOnStart: 1
-  _fadeIn: 0
-  _fadeOut: 0
---- !u!114 &-8031093043056669483
+--- !u!114 &1235014444145238470
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -175,14 +174,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3502984382729093175}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e503ea6418d27594caa33b93cac1b06a, type: 3}
+  m_Script: {fileID: 11500000, guid: a07f270ac36c49789466c75ceb88424c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   enableSpatialization: 1
-  gain: 0
-  useInvSqr: 0
-  near: 0.25
-  far: 250
-  volumetricRadius: 0
-  reverbSend: 0
-  enableRfl: 0
+  gainBoostDb: 0
+  enableAcoustics: 1
+  reverbSendDb: 0

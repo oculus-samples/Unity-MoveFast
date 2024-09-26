@@ -11,6 +11,9 @@ GameObject:
   - component: {fileID: 6021596407736967492}
   - component: {fileID: 32760032207940752}
   - component: {fileID: 7295347033651419795}
+  - component: {fileID: 9176208088007354512}
+  - component: {fileID: 7302376350763772266}
+  - component: {fileID: 962452189220343195}
   m_Layer: 0
   m_Name: PalmPoseActiveState
   m_TagString: Untagged
@@ -58,9 +61,11 @@ MonoBehaviour:
       UpVectorType: 2
       FeatureThresholds: {fileID: 11400000, guid: 039cf5a7424e1e046b79287e9375cf09, type: 2}
     _handShape: {fileID: 11400000, guid: fc6c1d1d7ce19c54697b26c7cc5c2023, type: 2}
+  _transform: {fileID: 7302376350763772266}
+  _shape: {fileID: 962452189220343195}
   _canHitTarget:
     _activeState: {fileID: 0}
-    _invert: 0
+    _invert: 1
     _useNull: 0
 --- !u!114 &7295347033651419795
 MonoBehaviour:
@@ -78,3 +83,56 @@ MonoBehaviour:
   - {fileID: 32760032207940752}
   - {fileID: 0}
   _logicOperator: 0
+--- !u!114 &9176208088007354512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7107166818508297297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b14164f8f23faae4293baeb84485b3d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _hand: {fileID: 0}
+--- !u!114 &7302376350763772266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7107166818508297297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6f9440d09721c849864899e8986e219, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _hand: {fileID: 9176208088007354512}
+  _transformFeatureStateProvider: {fileID: 0}
+  _transformFeatureConfigs:
+    _values:
+    - _mode: 0
+      _feature: 5
+      _state: 15
+  _transformConfig:
+    PositionOffset: {x: 0, y: 0, z: 0}
+    RotationOffset: {x: 0, y: 0, z: 0}
+    UpVectorType: 0
+    FeatureThresholds: {fileID: 11400000, guid: 039cf5a7424e1e046b79287e9375cf09, type: 2}
+--- !u!114 &962452189220343195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7107166818508297297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08f7cfb1f9629da4494ac0840f3a3cfd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _hand: {fileID: 9176208088007354512}
+  _fingerFeatureStateProvider: {fileID: 0}
+  _shapes:
+  - {fileID: 11400000, guid: fc6c1d1d7ce19c54697b26c7cc5c2023, type: 2}

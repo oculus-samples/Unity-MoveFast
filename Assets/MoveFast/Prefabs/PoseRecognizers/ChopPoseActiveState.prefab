@@ -11,6 +11,9 @@ GameObject:
   - component: {fileID: 6021596407736967492}
   - component: {fileID: 32760032207940752}
   - component: {fileID: 1310353134208623885}
+  - component: {fileID: 6839763737340248455}
+  - component: {fileID: 2746750629551966910}
+  - component: {fileID: 155745641705394963}
   m_Layer: 0
   m_Name: ChopPoseActiveState
   m_TagString: Untagged
@@ -61,6 +64,8 @@ MonoBehaviour:
       UpVectorType: 2
       FeatureThresholds: {fileID: 11400000, guid: 039cf5a7424e1e046b79287e9375cf09, type: 2}
     _handShape: {fileID: 11400000, guid: e61e89a0b5d9b194db2ee1172fd07f10, type: 2}
+  _transform: {fileID: 2746750629551966910}
+  _shape: {fileID: 155745641705394963}
   _canHitTarget:
     _activeState: {fileID: 0}
     _invert: 0
@@ -81,3 +86,59 @@ MonoBehaviour:
   - {fileID: 32760032207940752}
   - {fileID: 0}
   _logicOperator: 0
+--- !u!114 &6839763737340248455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7107166818508297297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b14164f8f23faae4293baeb84485b3d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _hand: {fileID: 0}
+--- !u!114 &2746750629551966910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7107166818508297297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6f9440d09721c849864899e8986e219, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _hand: {fileID: 6839763737340248455}
+  _transformFeatureStateProvider: {fileID: 0}
+  _transformFeatureConfigs:
+    _values:
+    - _mode: 0
+      _feature: 4
+      _state: 14
+    - _mode: 0
+      _feature: 5
+      _state: 17
+  _transformConfig:
+    PositionOffset: {x: 0, y: 0, z: 0}
+    RotationOffset: {x: 0, y: 0, z: 0}
+    UpVectorType: 2
+    FeatureThresholds: {fileID: 11400000, guid: 039cf5a7424e1e046b79287e9375cf09, type: 2}
+--- !u!114 &155745641705394963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7107166818508297297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08f7cfb1f9629da4494ac0840f3a3cfd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _hand: {fileID: 6839763737340248455}
+  _fingerFeatureStateProvider: {fileID: 0}
+  _shapes:
+  - {fileID: 11400000, guid: e61e89a0b5d9b194db2ee1172fd07f10, type: 2}
