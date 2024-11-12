@@ -1,7 +1,7 @@
 ![MoveFast Banner](./Media/CoverArtHero(MiniLandscape).png "MoveFast")
 
 # Move Fast
-This is a demonstration for developers of the capabilities of the Interaction SDK for fast-action fitness types of apps.
+This is a demonstration for developers of the capabilities of the [Interaction SDK](https://assetstore.unity.com/packages/tools/integration/meta-xr-interaction-sdk-265014) for fast-action fitness types of apps.
 
 A short experience that lets you get a fun workout trying to punch, chop and block using your real hands!
 
