@@ -29,3 +29,21 @@ All of the actual project files are in Assets/Project. This folder includes all 
 The project includes v46 of the Oculus SDK, including the Interaction SDK. You can find the Interaction SDK in [Packages/com.oculus.integration.interaction](meta_004_unity/Packages/com.oculus.integration.interaction).
 
 To run the sample, open the project folder in *Unity 2022.3.22f1* or newer and load the [Assets/MoveFast/Scenes/MoveFast.unity](meta_004_unity/Assets/MoveFast/Scenes/MoveFast.unity) scene.
+
+## Agent-ready development
+
+This sample is configured for AI coding agents.
+
+For the best experience in VS Code or Cursor, install the Meta Horizon extension:
+
+https://marketplace.visualstudio.com/items?itemName=meta.meta-vr-dev
+
+This repository also includes agent instructions and MCP configuration for Meta Quest Agentic Tools:
+
+https://github.com/meta-quest/agentic-tools
+
+Suggested first prompt:
+
+```text
+Read AGENTS.md, detect what type of Meta Quest sample this is, enable the hzdb MCP server if available, and explain how to build, run, and debug this sample on a Quest device.
+```
